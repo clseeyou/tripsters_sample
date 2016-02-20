@@ -46,7 +46,13 @@ public class Country extends NetBean implements Parcelable {
         dest.writeInt(hot);
     }
 
+    /**
+     * hot = 1  开通
+     */
     public static final int OPENED = 1;
+    /**
+     * hot = 2  试运营
+     */
     public static final int OPERATED = 2;
 
     private int id;
@@ -126,18 +132,5 @@ public class Country extends NetBean implements Parcelable {
         }
 
         return false;
-    }
-
-    public static Country getThailaid() {
-        Country country = new Country();
-
-        country.setId(1);
-        country.setCountryNameCn("泰国");
-        country.setCountryNameEn("Thailand");
-        country.setCountryNameEn("ประเทศไทย");
-        country.setCountryCode("th");
-        country.setHot(2);
-
-        return country;
     }
 }

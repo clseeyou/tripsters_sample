@@ -25,7 +25,6 @@ public class City extends NetBean implements Parcelable {
             city.city_lng = source.readString();
             city.city_lat = source.readString();
             city.city_hot = source.readInt();
-            city.pinyin = source.readString();
 
             return city;
         }
@@ -46,7 +45,6 @@ public class City extends NetBean implements Parcelable {
         dest.writeString(city_lng);
         dest.writeString(city_lat);
         dest.writeInt(city_hot);
-        dest.writeString(pinyin);
     }
 
     public static final int OPENED = 1;
@@ -60,7 +58,6 @@ public class City extends NetBean implements Parcelable {
     private String city_lng;
     private String city_lat;
     private int city_hot;
-    private String pinyin;
 
     public int getId() {
         return id;
@@ -141,18 +138,6 @@ public class City extends NetBean implements Parcelable {
     public void setCityHot(int cityHot) {
         this.city_hot = cityHot;
     }
-
-    public String getPinyin() {
-        return pinyin;
-    }
-
-    public void setPinyin(String pinyin) {
-        this.pinyin = pinyin;
-    }
-
-//    public void initPinyin(Context context) {
-//        pinyin = Utils.getNickPinyin(context, city_name_cn, true).toUpperCase();
-//    }
 
     @Override
     public boolean equals(Object o) {
