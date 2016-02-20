@@ -145,6 +145,7 @@ public class NetRequest {
         int i = 0;
         for (String key : paramKeysGet.keySet()) {
             Object value = paramKeysGet.get(key);
+
             // value非空项
             if (value != null) {
                 if (i != 0) {
