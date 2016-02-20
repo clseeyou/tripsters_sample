@@ -4,6 +4,15 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
+
+import com.tripsters.android.model.CityList;
+import com.tripsters.android.model.Country;
+import com.tripsters.android.model.CountryList;
+import com.tripsters.android.task.GetSupportCityTask;
+import com.tripsters.android.task.GetSupportCountryTask;
+
+import java.util.List;
 
 public class MainActivity extends ActionBarActivity {
 
@@ -11,6 +20,34 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        new GetSupportCountryTask(getApplicationContext(), new GetSupportCountryTask.GetSupportCountryTaskResult() {
+            @Override
+            public void onTaskResult(CountryList result) {
+                if (result != null) {
+                    if (result.isSuccessful()) {
+                        Toast.makeText(getApplicationContext(), "country success", Toast.LENGTH_SHORT).show();
+
+                        List<Country> countries = result.getList();
+
+                        new GetSupportCityTask(getApplicationContext(), countries.get(0).getCountryCode(), new GetSupportCityTask.GetSupportCityTaskResult() {
+                            @Override
+                            public void onTaskResult(CityList result) {
+                                if (result != null) {
+                                    if (result.isSuccessful()) {
+                                        Toast.makeText(getApplicationContext(), "city success", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Toast.makeText(getApplicationContext(), result.getErrmsg(), Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            }
+                        }).execute();
+                    } else {
+                        Toast.makeText(getApplicationContext(), result.getErrmsg(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        }).execute();
     }
 
     @Override

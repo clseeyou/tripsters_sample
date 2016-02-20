@@ -162,7 +162,7 @@ public class NetRequest {
     }
 
     private static void setCommonParams(Context context, Bundle params) {
-        params.putString(PARAM_APPID, "appid");
+        params.putString(PARAM_APPID, "test");
         params.putString(PARAM_PLATFORM, PARAM_PLATFORM_VALUE_ANDROID);
         params.putString(PARAM_VERSION, PARAM_VERSION_VALUE);
         params.putString(PARAM_LANGUAGE, Locale.getDefault().toString());
