@@ -7,7 +7,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 
-public class Question extends NetBean implements Parcelable {
+public class Question implements Parcelable {
 
     public static final Creator<Question> CREATOR = new Creator<Question>() {
 

@@ -6,7 +6,7 @@ import java.util.List;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class Answer extends NetBean implements Parcelable {
+public class Answer implements Parcelable {
 
     public static final Creator<Answer> CREATOR = new Creator<Answer>() {
 

@@ -1,6 +1,6 @@
 package com.tripsters.android.model;
 
-public class ResultBean extends NetBean {
+public class NetResult {
 
     protected static final int CODE_SUCCESS = 0;
 

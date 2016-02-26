@@ -3,13 +3,7 @@ package com.tripsters.android.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-
-/**
- * 分类
- * 
- * @author seeyou
- */
-public class Tag extends NetBean implements Parcelable {
+public class Tag implements Parcelable {
 
     public static final Creator<Tag> CREATOR = new Creator<Tag>() {
 

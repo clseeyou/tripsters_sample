@@ -5,7 +5,7 @@ import android.os.Parcelable;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Country extends NetBean implements Parcelable {
+public class Country implements Parcelable {
 
     public static final Creator<Country> CREATOR = new Creator<Country>() {
 

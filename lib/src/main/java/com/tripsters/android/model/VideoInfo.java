@@ -3,7 +3,7 @@ package com.tripsters.android.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class VideoInfo extends NetBean implements Parcelable {
+public class VideoInfo implements Parcelable {
 
     public static final Creator<VideoInfo> CREATOR = new Creator<VideoInfo>() {
 

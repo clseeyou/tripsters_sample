@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 
-public class City extends NetBean implements Parcelable {
+public class City implements Parcelable {
 
     public static final Creator<City> CREATOR = new Creator<City>() {
 

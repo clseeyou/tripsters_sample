@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 
-public class Poi extends NetBean implements Parcelable {
+public class Poi implements Parcelable {
 
     public static final Creator<Poi> CREATOR = new Creator<Poi>() {
 

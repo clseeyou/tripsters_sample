@@ -9,7 +9,7 @@ import android.text.TextUtils;
 
 import com.tripsters.android.model.RichInfo.Type;
 
-public class Blog extends NetBean implements Parcelable {
+public class Blog implements Parcelable {
 
     public static final Creator<Blog> CREATOR = new Creator<Blog>() {
 

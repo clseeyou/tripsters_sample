@@ -6,7 +6,7 @@ import android.text.TextUtils;
 
 import com.tripsters.android.util.LogUtils;
 
-public class UserInfo extends NetBean implements Parcelable, Cloneable {
+public class UserInfo implements Parcelable, Cloneable {
 
     public static final Creator<UserInfo> CREATOR = new Creator<UserInfo>() {
 

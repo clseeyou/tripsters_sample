@@ -3,7 +3,7 @@ package com.tripsters.android.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class PicInfo extends NetBean implements Parcelable {
+public class PicInfo implements Parcelable {
     public static enum PicType {
         ORI, SMALL, MIDDLE, BIG;
 

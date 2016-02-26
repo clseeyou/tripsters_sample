@@ -3,7 +3,7 @@ package com.tripsters.android.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CountryList extends ListBean<Country> {
+public class CountryList extends ListNetResult<Country> {
 
     private List<Country> data;
 
