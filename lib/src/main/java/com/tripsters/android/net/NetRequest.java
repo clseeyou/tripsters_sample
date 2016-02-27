@@ -130,7 +130,7 @@ public class NetRequest {
      * @param picPath 问题图片的流，限制为一张（可选）
      * @param country 国家，中文国家名（必填）
      * @param cities  国家对应的城市，用趣皮士提供的城市id，中间为英文逗号隔开如：34,45最多为两个城市（必填）
-     * @param tags    问题标签，用趣皮士提供的标签id，中间为英文逗号隔开如：1,2最多为三个城市（可选）
+     * @param tags
      * @param lat     问题图片的流，限制为一张（可选）
      * @param lng     问题的精度，格式为：100.5391834（可选）
      * @param address 问题的精度，格式为：100.5391834（可选）
@@ -380,12 +380,12 @@ public class NetRequest {
         params.putString(PARAM_ACTION, "login");
         // params
         Bundle paramKeys = new Bundle();
-        paramKeys.putString("user_id", appuid);
+        paramKeys.putString("open_id", appuid);
         paramKeys.putString("nickname", nickname);
         paramKeys.putString("avatar", avatar);
         paramKeys.putString("location", location);
         paramKeys.putString("gender", gender);
-        params.putBundle(PARAM_KEYS_GET, paramKeys);
+        params.putBundle(PARAM_KEYS_POST, paramKeys);
 
         String response = request(context, params);
 

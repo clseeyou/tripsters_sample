@@ -13,10 +13,10 @@ import com.tripsters.android.model.TagList;
 import com.tripsters.android.model.UserInfoResult;
 import com.tripsters.android.util.Constants;
 
-/**
- * Created by chenli on 16/2/22.
- */
 public class NetRequestTest extends AndroidTestCase {
+
+    private static final String TEST_UID = "11387";
+    private static final String TEST_QID = "1663";
 
     public void testGetSupportCountry() throws Exception {
         CountryList countryList = NetRequest.getSupportCountry(getContext());
@@ -40,13 +40,13 @@ public class NetRequestTest extends AndroidTestCase {
     }
 
     public void testSendQuestionById() throws Exception {
-        NetResult netResult = NetRequest.sendQuestionById(getContext(), getTestUid(), "question", null, "泰国", "33,34", null, null, null, null);
+        NetResult netResult = NetRequest.sendQuestionById(getContext(), TEST_UID, "question", null, "泰国", "33,34", null, null, null, null);
         assertNotNull(netResult);
         assertTrue(netResult.isSuccessful());
     }
 
     public void testGetAnswer() throws Exception {
-        AnswerList tagList = NetRequest.getAnswer(getContext(), "14849", 1, Constants.PAGE_COUNT);
+        AnswerList tagList = NetRequest.getAnswer(getContext(), TEST_QID, 1, Constants.PAGE_COUNT);
         assertNotNull(tagList);
         assertTrue(tagList.isSuccessful());
         assertFalse(tagList.getList().isEmpty());
@@ -67,20 +67,20 @@ public class NetRequestTest extends AndroidTestCase {
     }
 
     public void testGetQuestionDetail() throws Exception {
-        QuestionResult questionResult = NetRequest.getQuestionDetail(getContext(), "14849");
+        QuestionResult questionResult = NetRequest.getQuestionDetail(getContext(), TEST_QID);
         assertNotNull(questionResult);
         assertTrue(questionResult.isSuccessful());
         assertNotNull(questionResult.getQuestion());
     }
 
     public void testSendAnswerById() throws Exception {
-        NetResult netResult = NetRequest.sendAnswerById(getContext(), getTestUid(), "answer", null, null, null, "14849", null);
+        NetResult netResult = NetRequest.sendAnswerById(getContext(), TEST_UID, "answer", null, null, null, TEST_QID, null);
         assertNotNull(netResult);
         assertTrue(netResult.isSuccessful());
     }
 
     public void testSendReAnswerById() throws Exception {
-        NetResult netResult = NetRequest.sendReAnswerById(getContext(), getTestUid(), "reanswer", null, null, null, "14849", null, getTestUid());
+        NetResult netResult = NetRequest.sendReAnswerById(getContext(), TEST_UID, "reanswer", null, null, null, TEST_QID, null, TEST_UID);
         assertNotNull(netResult);
         assertTrue(netResult.isSuccessful());
     }
@@ -90,9 +90,5 @@ public class NetRequestTest extends AndroidTestCase {
         assertNotNull(UserInfoResult);
         assertTrue(UserInfoResult.isSuccessful());
         assertNotNull(UserInfoResult.getUserInfo());
-    }
-
-    private static String getTestUid() {
-        return "test";
     }
 }

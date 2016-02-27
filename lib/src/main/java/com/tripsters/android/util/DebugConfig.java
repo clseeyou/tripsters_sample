@@ -8,7 +8,7 @@ public class DebugConfig {
     public static boolean sLogDebug;
 
     static {
-        sNetDebug = false;
+        sNetDebug = DEBUG;
         sLogDebug = DEBUG;
     }
 
