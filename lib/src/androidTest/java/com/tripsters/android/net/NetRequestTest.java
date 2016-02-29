@@ -9,7 +9,6 @@ import com.tripsters.android.model.Gender;
 import com.tripsters.android.model.NetResult;
 import com.tripsters.android.model.QuestionList;
 import com.tripsters.android.model.QuestionResult;
-import com.tripsters.android.model.TagList;
 import com.tripsters.android.model.UserInfoResult;
 import com.tripsters.android.util.Constants;
 
@@ -32,15 +31,8 @@ public class NetRequestTest extends AndroidTestCase {
         assertFalse(cityList.getList().isEmpty());
     }
 
-    public void testGetSupportCate() throws Exception {
-        TagList tagList = NetRequest.getSupportCate(getContext());
-        assertNotNull(tagList);
-        assertTrue(tagList.isSuccessful());
-        assertFalse(tagList.getList().isEmpty());
-    }
-
     public void testSendQuestionById() throws Exception {
-        NetResult netResult = NetRequest.sendQuestionById(getContext(), TEST_UID, "question", null, "泰国", "33,34", null, null, null, null);
+        NetResult netResult = NetRequest.sendQuestionById(getContext(), TEST_UID, "question", null, "泰国", "33,34", null, null, null);
         assertNotNull(netResult);
         assertTrue(netResult.isSuccessful());
     }
@@ -74,13 +66,13 @@ public class NetRequestTest extends AndroidTestCase {
     }
 
     public void testSendAnswerById() throws Exception {
-        NetResult netResult = NetRequest.sendAnswerById(getContext(), TEST_UID, "answer", null, null, null, TEST_QID, null);
+        NetResult netResult = NetRequest.sendAnswerById(getContext(), TEST_UID, "answer", null, TEST_QID);
         assertNotNull(netResult);
         assertTrue(netResult.isSuccessful());
     }
 
     public void testSendReAnswerById() throws Exception {
-        NetResult netResult = NetRequest.sendReAnswerById(getContext(), TEST_UID, "reanswer", null, null, null, TEST_QID, null, TEST_UID);
+        NetResult netResult = NetRequest.sendReAnswerById(getContext(), TEST_UID, "reanswer", null, TEST_QID, TEST_UID);
         assertNotNull(netResult);
         assertTrue(netResult.isSuccessful());
     }

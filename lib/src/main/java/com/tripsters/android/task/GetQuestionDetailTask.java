@@ -11,7 +11,7 @@ import java.io.IOException;
 public class GetQuestionDetailTask extends AsyncTask<Void, Void, QuestionResult> {
 
     public interface GetQuestionDetailTaskResult {
-        public void onTaskResult(QuestionResult result);
+        void onTaskResult(QuestionResult result);
     }
 
     private Context mContext;

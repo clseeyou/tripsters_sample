@@ -11,7 +11,7 @@ import java.io.IOException;
 public class LoginTask extends AsyncTask<Void, Void, UserInfoResult> {
 
     public interface LoginTaskResult {
-        public void onTaskResult(UserInfoResult result);
+        void onTaskResult(UserInfoResult result);
     }
 
     private Context mContext;

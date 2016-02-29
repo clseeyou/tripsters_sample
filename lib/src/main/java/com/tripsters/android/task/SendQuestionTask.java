@@ -20,22 +20,20 @@ public class SendQuestionTask extends AsyncTask<Void, Void, NetResult> {
     private String mPicPath;
     private String mCountry;
     private String mCities;
-    private String mTags;
     private String mLat;
     private String mLng;
     private String mAddress;
     private SendQuestionTaskResult mTaskResult;
 
-    public SendQuestionTask(Context context, String uid, String title, String detail,
-                            String picPath, String country, String cities, String tags, String lat, String lng,
-                            String address, SendQuestionTaskResult taskResult) {
+    public SendQuestionTask(Context context, String uid, String title, String picPath,
+                            String country, String cities, String lat, String lng, String address,
+                            SendQuestionTaskResult taskResult) {
         this.mContext = context;
         this.mUid = uid;
         this.mTitle = title;
         this.mPicPath = picPath;
         this.mCountry = country;
         this.mCities = cities;
-        this.mTags = tags;
         this.mLat = lat;
         this.mLng = lng;
         this.mAddress = address;
@@ -45,8 +43,8 @@ public class SendQuestionTask extends AsyncTask<Void, Void, NetResult> {
     @Override
     protected NetResult doInBackground(Void... params) {
         try {
-            return NetRequest.sendQuestionById(mContext, mUid, mTitle, mPicPath, mCountry, mCities,
-                    mTags, mLat, mLng, mAddress);
+            return NetRequest.sendQuestionById(mContext, mUid, mTitle, mPicPath,
+                    mCountry, mCities, mLat, mLng, mAddress);
         } catch (IOException e) {
             e.printStackTrace();
         }

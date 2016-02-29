@@ -12,7 +12,7 @@ import java.io.IOException;
 public class GetAnswerTask extends AsyncTask<Void, Void, AnswerList> {
 
     public interface GetAnswerTaskResult {
-        public void onTaskResult(AnswerList result);
+        void onTaskResult(AnswerList result);
     }
 
     private Context mContext;

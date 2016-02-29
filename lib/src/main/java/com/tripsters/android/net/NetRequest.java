@@ -12,7 +12,6 @@ import com.tripsters.android.model.ModelFactory;
 import com.tripsters.android.model.NetResult;
 import com.tripsters.android.model.QuestionList;
 import com.tripsters.android.model.QuestionResult;
-import com.tripsters.android.model.TagList;
 import com.tripsters.android.model.UserInfoResult;
 import com.tripsters.android.util.DebugConfig;
 import com.tripsters.android.util.Utils;
@@ -101,27 +100,6 @@ public class NetRequest {
     }
 
     /**
-     * 获取支持的类别
-     *
-     * @param context context
-     * @return 类别列表
-     * @throws IOException
-     */
-    public static TagList getSupportCate(Context context) throws IOException {
-        Bundle params = new Bundle();
-        params.putString(PARAM_MODEL, PARAM_MODEL_VALUE_PARTNER);
-        params.putString(PARAM_CONTROLLER, PARAM_CONTROLLER_VALUE_CATE);
-        params.putString(PARAM_ACTION, "getSupportCate");
-        // params
-        Bundle paramKeys = new Bundle();
-        params.putBundle(PARAM_KEYS_GET, paramKeys);
-
-        String response = request(context, params);
-
-        return ModelFactory.getInstance().create(response, TagList.class);
-    }
-
-    /**
      * 发送问题
      *
      * @param context context
@@ -130,7 +108,6 @@ public class NetRequest {
      * @param picPath 问题图片的流，限制为一张（可选）
      * @param country 国家，中文国家名（必填）
      * @param cities  国家对应的城市，用趣皮士提供的城市id，中间为英文逗号隔开如：34,45最多为两个城市（必填）
-     * @param tags
      * @param lat     问题图片的流，限制为一张（可选）
      * @param lng     问题的精度，格式为：100.5391834（可选）
      * @param address 问题的精度，格式为：100.5391834（可选）
@@ -138,7 +115,7 @@ public class NetRequest {
      * @throws IOException
      */
     public static NetResult sendQuestionById(Context context, String uid, String title,
-                                             String picPath, String country, String cities, String tags, String lat,
+                                             String picPath, String country, String cities, String lat,
                                              String lng, String address) throws IOException {
         Bundle params = new Bundle();
         params.putString(PARAM_MODEL, PARAM_MODEL_VALUE_PARTNER);
@@ -154,7 +131,6 @@ public class NetRequest {
         paramKeys.putBundle(NetUtils.TYPE_FILE_NAME, picParams);
         paramKeys.putString("country", country);
         paramKeys.putString("city", cities);
-        paramKeys.putString("category", tags);
         paramKeys.putString("lat", lat);
         paramKeys.putString("lng", lng);
         paramKeys.putString("address", address);
@@ -282,15 +258,12 @@ public class NetRequest {
      * @param uid     用户id（必填）
      * @param detail  回复详情，限长为255（必填）
      * @param picPath 问题图片的流，限制为一张（可选）
-     * @param pois
-     * @param blogs
      * @param qid     回复详情，限长为255（必填）
-     * @param quid
      * @return 回复问题结果
      * @throws IOException
      */
     public static NetResult sendAnswerById(Context context, String uid, String detail,
-                                           String picPath, String pois, String blogs, String qid, String quid)
+                                           String picPath, String qid)
             throws IOException {
         Bundle params = new Bundle();
         params.putString(PARAM_MODEL, PARAM_MODEL_VALUE_PARTNER);
@@ -305,10 +278,7 @@ public class NetRequest {
         Bundle picParams = new Bundle();
         picParams.putString("pic", picPath);
         paramKeys.putBundle(NetUtils.TYPE_FILE_NAME, picParams);
-        paramKeys.putString("pois", pois);
-        paramKeys.putString("locals", blogs);
         paramKeys.putString("question_id", qid);
-        paramKeys.putString("q_user_id", quid);
         params.putBundle(PARAM_KEYS_POST, paramKeys);
 
         String response = request(context, params);
@@ -324,16 +294,13 @@ public class NetRequest {
      * @param uid     用户id（必填）
      * @param detail  回复详情，限长为255（必填）
      * @param picPath 问题图片的流，限制为一张（可选）
-     * @param pois
-     * @param locals
      * @param qid     回复详情，限长为255（必填）
-     * @param quid
      * @param auid    被追问者的用户id（趣皮士提供的user_id,不是open_id）（必填）
      * @return 追问回复结果
      * @throws IOException
      */
     public static NetResult sendReAnswerById(Context context, String uid, String detail,
-                                             String picPath, String pois, String locals, String qid, String quid, String auid)
+                                             String picPath, String qid, String auid)
             throws IOException {
         Bundle params = new Bundle();
         params.putString(PARAM_MODEL, PARAM_MODEL_VALUE_PARTNER);
@@ -348,10 +315,7 @@ public class NetRequest {
         Bundle picParams = new Bundle();
         picParams.putString("pic", picPath);
         paramKeys.putBundle(NetUtils.TYPE_FILE_NAME, picParams);
-        paramKeys.putString("pois", pois);
-        paramKeys.putString("locals", locals);
         paramKeys.putString("question_id", qid);
-        paramKeys.putString("q_user_id", quid);
         paramKeys.putString("answer_user_id", auid);
         params.putBundle(PARAM_KEYS_POST, paramKeys);
 

@@ -11,30 +11,24 @@ import java.io.IOException;
 public class SendReAnswerTask extends AsyncTask<Void, Void, NetResult> {
 
     public interface SendReAnswerTaskResult {
-        public void onTaskResult(NetResult result);
+        void onTaskResult(NetResult result);
     }
 
     private Context mContext;
     private String mUid;
-    private String mTitle;
+    private String mDetail;
     private String mPicPath;
-    private String mPois;
-    private String mBlogs;
     private String mQid;
-    private String mQuid;
     private String mAuid;
     private SendReAnswerTaskResult mTaskResult;
 
-    public SendReAnswerTask(Context context, String uid, String title, String detail,
-                            String picPath, String pois, String blogs, String qid, String quid, String auid, SendReAnswerTaskResult taskResult) {
+    public SendReAnswerTask(Context context, String uid, String detail, String picPath, String qid, String auid,
+                            SendReAnswerTaskResult taskResult) {
         this.mContext = context;
         this.mUid = uid;
-        this.mTitle = title;
+        this.mDetail = detail;
         this.mPicPath = picPath;
-        this.mPois = pois;
-        this.mBlogs = blogs;
         this.mQid = qid;
-        this.mQuid = quid;
         this.mAuid = auid;
         this.mTaskResult = taskResult;
     }
@@ -42,8 +36,7 @@ public class SendReAnswerTask extends AsyncTask<Void, Void, NetResult> {
     @Override
     protected NetResult doInBackground(Void... params) {
         try {
-            return NetRequest.sendReAnswerById(mContext, mUid, mTitle, mPicPath, mPois, mBlogs,
-                    mQid, mQuid, mAuid);
+            return NetRequest.sendReAnswerById(mContext, mUid, mDetail, mPicPath, mQid, mAuid);
         } catch (IOException e) {
             e.printStackTrace();
         }

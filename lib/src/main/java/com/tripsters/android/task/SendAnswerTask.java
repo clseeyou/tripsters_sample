@@ -11,37 +11,30 @@ import java.io.IOException;
 public class SendAnswerTask extends AsyncTask<Void, Void, NetResult> {
 
     public interface SendAnswerTaskResult {
-        public void onTaskResult(NetResult result);
+        void onTaskResult(NetResult result);
     }
 
     private Context mContext;
     private String mUid;
-    private String mTitle;
+    private String mDetail;
     private String mPicPath;
-    private String mPois;
-    private String mBlogs;
     private String mQid;
-    private String mQuid;
     private SendAnswerTaskResult mTaskResult;
 
-    public SendAnswerTask(Context context, String uid, String title, String detail,
-                          String picPath, String pois, String blogs, String qid, String quid, SendAnswerTaskResult taskResult) {
+    public SendAnswerTask(Context context, String uid, String detail, String picPath, String qid,
+                          SendAnswerTaskResult taskResult) {
         this.mContext = context;
         this.mUid = uid;
-        this.mTitle = title;
+        this.mDetail = detail;
         this.mPicPath = picPath;
-        this.mPois = pois;
-        this.mBlogs = blogs;
         this.mQid = qid;
-        this.mQuid = quid;
         this.mTaskResult = taskResult;
     }
 
     @Override
     protected NetResult doInBackground(Void... params) {
         try {
-            return NetRequest.sendAnswerById(mContext, mUid, mTitle, mPicPath, mPois, mBlogs,
-                    mQid, mQuid);
+            return NetRequest.sendAnswerById(mContext, mUid, mDetail, mPicPath, mQid);
         } catch (IOException e) {
             e.printStackTrace();
         }
