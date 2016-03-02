@@ -1,11 +1,7 @@
 package com.tripsters.android.model;
 
-//import com.tripsters.android.R;
-//
-//import android.content.Context;
-
 public enum Gender {
-    MALE("m"), FEMALE("f"), UNKNOWN("");
+    MALE("m"), FEMALE("f"), UNKNOWN("n");
 
     final String value;
 
@@ -17,16 +13,6 @@ public enum Gender {
         return this.value;
     }
 
-//    public String getText(Context context) {
-//        if (this == MALE) {
-//            return context.getString(R.string.profile_info_gender_male);
-//        } else if (this == FEMALE) {
-//            return context.getString(R.string.profile_info_gender_female);
-//        } else {
-//            return context.getString(R.string.profile_info_gender_female);
-//        }
-//    }
-
     public static Gender getFromValue(String value) {
         for (Gender gender : values()) {
             if (gender.value.equals(value)) {
@@ -36,14 +22,4 @@ public enum Gender {
 
         return UNKNOWN;
     }
-
-//    public static Gender getGenderFromText(Context context, String text) {
-//        for (Gender gender : values()) {
-//            if (gender.getText(context).equals(text)) {
-//                return gender;
-//            }
-//        }
-//
-//        return UNKNOWN;
-//    }
 }

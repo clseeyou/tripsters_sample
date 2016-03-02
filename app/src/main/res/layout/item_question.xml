@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <com.tripsters.sample.view.PortraitView
+        android:id="@+id/pv_portrait"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/tb_margin"
+        android:layout_marginTop="20dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="@dimen/tb_margin"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical" >
+
+        <com.tripsters.sample.view.TTextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:textColor="@color/tb_dark_grey"
+            android:textSize="@dimen/text_large_size" />
+
+        <com.tripsters.sample.view.TTextView
+            android:id="@+id/tv_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:ellipsize="end"
+            android:textColor="@color/tb_light_grey"
+            android:textSize="@dimen/text_middle_size" />
+
+        <ImageView
+            android:id="@+id/iv_question_pic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2.5dp"
+            android:layout_marginTop="10dp"
+            android:maxHeight="@dimen/image_item_max_size"
+            android:maxWidth="@dimen/image_item_max_size" />
+
+        <TextView
+            android:id="@+id/tv_tags"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/tb_light_grey"
+            android:textSize="@dimen/text_small_size" />
+
+        <com.tripsters.sample.view.LocationView
+            android:id="@+id/v_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp" >
+
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="5dp"
+                android:textColor="@color/tb_light_grey"
+                android:textSize="@dimen/text_small_size" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/tv_answer_num"
+                android:layout_marginBottom="1.5dp"
+                android:layout_marginRight="5dp"
+                android:layout_toLeftOf="@+id/tv_answer_num"
+                android:src="@drawable/icon_answer_num" />
+
+            <TextView
+                android:id="@+id/tv_answer_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical"
+                android:textColor="@color/tb_blue"
+                android:textSize="@dimen/text_small_size" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/lt_answer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/pop_right"
+            android:orientation="vertical"
+            android:padding="10dp" >
+
+            <com.tripsters.sample.view.TTextView
+                android:id="@+id/tv_answer_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:textColor="@color/tb_light_grey"
+                android:textSize="@dimen/text_middle_size" />
+
+            <ImageView
+                android:id="@+id/iv_answer_pic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:maxHeight="@dimen/image_item_max_size"
+                android:maxWidth="@dimen/image_item_max_size" />
+        </LinearLayout>
+    </LinearLayout>
+
+</merge>

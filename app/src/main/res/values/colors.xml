@@ -1,0 +1,38 @@
+<resources>
+
+    <color name="tb_translucent">#e4021a37</color>
+    <color name="tb_dark_grey">#464f54</color>
+    <!-- <color name="tb_middle_grey">#88939a</color> -->
+    <color name="tb_light_grey">#88939a</color>
+    <color name="tb_orange">#fcb43f</color>
+    <color name="tb_blue">#2ea7e0</color>
+    <color name="tb_green">#00b233</color>
+    <color name="tb_red">#f2445d</color>
+    <color name="tb_pink">#fb8f8f</color>
+    <color name="tb_divider_grey">#eaeeef</color>
+    <color name="tb_bg_grey">#f1f1f1</color>
+    <color name="tb_title">#f1f1f1</color>
+    <color name="tb_bg_white">#f7f9f9</color>
+    <color name="voip_interface_text_color">#bababa</color>
+    <color name="btn_answer_pressed">#4ebcd3</color>
+    <color name="btn_answer_normal">#2dafa3</color>
+
+    <color name="bg_default_1">#fae2bd</color>
+    <color name="bg_default_2">#abdab3</color>
+    <color name="bg_default_3">#b8cbe4</color>
+    <color name="bg_default_4">#e4cad5</color>
+    <color name="bg_default_5">#d6e2c8</color>
+    <color name="bg_default_6">#998bb5</color>
+    <color name="bg_default_7">#dedddd</color>
+    <color name="bg_default_8">#fbc8f1</color>
+
+    <color name="fg_media_bar_light">#32000000</color>
+    <color name="fg_media_bar_dark">#64000000</color>
+
+    <color name="camera_recording_progress_bg">#9c9b9b</color>
+    <color name="camera_recording_progress">#fcb43f</color>
+    <color name="camera_recording_progress_remove">#ff4123</color>
+    <color name="camera_recording_progress_active">#717171</color>
+    <color name="camera_recording_progress_mini_time">#d6f2f2f2</color>
+    <color name="camera_recording_progress_overflow">#ff8200</color>
+</resources>

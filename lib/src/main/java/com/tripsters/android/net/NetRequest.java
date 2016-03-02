@@ -14,9 +14,9 @@ import com.tripsters.android.model.QuestionList;
 import com.tripsters.android.model.QuestionResult;
 import com.tripsters.android.model.UserInfoResult;
 import com.tripsters.android.util.DebugConfig;
-import com.tripsters.android.util.Utils;
 
 import java.io.IOException;
+import java.util.Locale;
 
 /**
  * 网络接口类
@@ -34,7 +34,6 @@ public class NetRequest {
 
     private static final String PARAM_MODEL_VALUE_PARTNER = "partner";
     private static final String PARAM_CONTROLLER_VALUE_COUNTRY = "country";
-    private static final String PARAM_CONTROLLER_VALUE_CATE = "cate";
     private static final String PARAM_CONTROLLER_VALUE_QUESTION = "question";
     private static final String PARAM_CONTROLLER_VALUE_USER = "user";
 
@@ -435,9 +434,21 @@ public class NetRequest {
     }
 
     private static void setCommonParams(Context context, Bundle params) {
-        params.putString(PARAM_APPID, Utils.getAppId(context));
+        params.putString(PARAM_APPID, getAppId(context));
         params.putString(PARAM_PLATFORM, PARAM_PLATFORM_VALUE_ANDROID);
         params.putString(PARAM_VERSION, PARAM_VERSION_VALUE);
-        params.putString(PARAM_LANGUAGE, Utils.getAppLang(context));
+        params.putString(PARAM_LANGUAGE, getAppLang());
+    }
+
+    private static String getAppId(Context context) {
+        if (DebugConfig.DEBUG) {
+            return "jieda";
+        } else {
+            return "";
+        }
+    }
+
+    private static String getAppLang() {
+        return Locale.getDefault().toString();
     }
 }

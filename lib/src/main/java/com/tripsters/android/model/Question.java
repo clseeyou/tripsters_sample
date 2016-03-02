@@ -24,20 +24,15 @@ public class Question implements Parcelable {
             question.question_id = source.readString();
             question.title = source.readString();
             question.detail = source.readString();
-            question.Pics = source.readParcelable(PicInfo.class.getClassLoader());
+            question.pic = source.readParcelable(PicInfo.class.getClassLoader());
             question.created = source.readLong();
             question.answer_num = source.readInt();
             question.save_num = source.readInt();
             question.country = source.readParcelable(Country.class.getClassLoader());
-            question.Citys = source.readArrayList(City.class.getClassLoader());
+            question.city = source.readArrayList(City.class.getClassLoader());
             question.cates = source.readArrayList(Tag.class.getClassLoader());
             question.ipaddr = source.readString();
             question.address = source.readString();
-            // question.Answer = source.readParcelable(Answer.class.getClassLoader());
-            // question.user_id = source.readString();
-            // question.user_pic = source.readString();
-            // question.nickname = source.readString();
-            // question.identity = source.readString();
 
             UserInfo userInfo = source.readParcelable(UserInfo.class.getClassLoader());
             question.setUserInfo(userInfo);
@@ -56,20 +51,15 @@ public class Question implements Parcelable {
         dest.writeString(question_id);
         dest.writeString(title);
         dest.writeString(detail);
-        dest.writeParcelable(Pics, flags);
+        dest.writeParcelable(pic, flags);
         dest.writeLong(created);
         dest.writeInt(answer_num);
         dest.writeInt(save_num);
         dest.writeParcelable(country, flags);
-        dest.writeList(Citys);
+        dest.writeList(city);
         dest.writeList(cates);
         dest.writeString(ipaddr);
         dest.writeString(address);
-        // dest.writeParcelable(Answer, flags);
-        // dest.writeString(user_id);
-        // dest.writeString(nickname);
-        // dest.writeString(user_pic);
-        // dest.writeString(identity);
 
         dest.writeParcelable(getUserInfo(), flags);
     }
@@ -77,24 +67,19 @@ public class Question implements Parcelable {
     private String question_id;
     private String title;
     private String detail;
-    private PicInfo Pics;
+    private PicInfo pic;
     private long created;
     private int answer_num;// "回答的数量"
     private int save_num;// "收藏的数量"
     private Country country;
-    private List<City> Citys;
+    private List<City> city;
     private List<Tag> cates;
     private String ipaddr;
     private String address;
 
     private boolean save;
 
-    private Answer Answer;
-
-    private String user_id;
-    private String nickname;// 昵称
-    private String user_pic;
-    private String identity;
+    private Answer answer;
 
     private UserInfo userinfo;
 
@@ -123,11 +108,11 @@ public class Question implements Parcelable {
     }
 
     public PicInfo getPicInfo() {
-        return Pics;
+        return pic;
     }
 
     public void setPicInfo(PicInfo picInfo) {
-        this.Pics = picInfo;
+        this.pic = picInfo;
     }
 
     public long getCreated() {
@@ -163,15 +148,15 @@ public class Question implements Parcelable {
     }
 
     public List<City> getCities() {
-        if (Citys == null) {
+        if (city == null) {
             return new ArrayList<City>();
         }
 
-        return Citys;
+        return city;
     }
 
     public void setCities(List<City> cities) {
-        this.Citys = cities;
+        this.city = cities;
     }
 
     public List<Tag> getTags() {
@@ -211,42 +196,18 @@ public class Question implements Parcelable {
     }
 
     public Answer getAnswer() {
-        return Answer;
+        return answer;
     }
 
     public void setAnswer(Answer answer) {
-        this.Answer = answer;
+        this.answer = answer;
     }
 
     public UserInfo getUserInfo() {
-        if (userinfo == null) {
-            UserInfo userInfo = new UserInfo();
-            userInfo.setId(user_id);
-            userInfo.setNickname(nickname);
-            userInfo.setAvatar(user_pic);
-            if (!TextUtils.isEmpty(identity)) {
-                try {
-                    userInfo.setIdentity(Integer.parseInt(identity));
-                } catch (NumberFormatException e) {
-                    userInfo.setIdentity(0);
-                }
-            }
-
-            return userInfo;
-        }
-
         return userinfo;
     }
 
     public void setUserInfo(UserInfo userinfo) {
         this.userinfo = userinfo;
-    }
-
-    @Override
-    public String toString() {
-        return "Question [question_id=" + question_id + ", title=" + title + ", detail=" + detail
-                + ", created=" + created + ", user_id=" + user_id + ", pic=" + user_pic
-                + ", identity=" + identity + ", answer_num=" + answer_num + ", save_num="
-                + save_num + ", nickname=" + nickname + "]";
     }
 }

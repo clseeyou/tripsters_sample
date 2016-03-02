@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="6dp"
+        android:src="@drawable/icon_location" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="6dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/tv_location_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="@color/tb_light_grey"
+            android:textSize="@dimen/text_middle_size" />
+
+        <ProgressBar
+            android:id="@+id/pb_locating"
+            android:layout_width="22dp"
+            android:layout_height="12dp"
+            android:layout_gravity="center_vertical"
+            android:indeterminate="false"
+            android:indeterminateDrawable="@drawable/locating"
+            android:indeterminateDuration="900" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/v_divider"
+        android:layout_width="0.5dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="1.5dp"
+        android:background="#d4d6d6" />
+
+    <ImageView
+        android:id="@+id/iv_delete"
+        android:layout_width="22.5dp"
+        android:layout_height="match_parent"
+        android:scaleType="center"
+        android:src="@drawable/icon_poi_delete" />
+
+</merge>

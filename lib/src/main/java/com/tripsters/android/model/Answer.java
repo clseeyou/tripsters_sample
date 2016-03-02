@@ -22,13 +22,13 @@ public class Answer implements Parcelable {
 
             answer.answer_id = source.readString();
             answer.detail = source.readString();
-            answer.Pics = source.readParcelable(PicInfo.class.getClassLoader());
+            answer.pic = source.readParcelable(PicInfo.class.getClassLoader());
             answer.pois = source.readArrayList(Poi.class.getClassLoader());
             answer.locals = source.readArrayList(Blog.class.getClassLoader());
             answer.created = source.readLong();
             answer.like_num = source.readInt();
             answer.top = source.readInt();
-            answer.Question_Info = source.readParcelable(Question.class.getClassLoader());
+            answer.question = source.readParcelable(Question.class.getClassLoader());
 
             UserInfo userInfo = source.readParcelable(UserInfo.class.getClassLoader());
             answer.setUserInfo(userInfo);
@@ -46,20 +46,20 @@ public class Answer implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(answer_id);
         dest.writeString(detail);
-        dest.writeParcelable(Pics, flags);
+        dest.writeParcelable(pic, flags);
         dest.writeList(pois);
         dest.writeList(locals);
         dest.writeLong(created);
         dest.writeInt(like_num);
         dest.writeInt(top);
-        dest.writeParcelable(Question_Info, flags);
+        dest.writeParcelable(question, flags);
 
         dest.writeParcelable(getUserInfo(), flags);
     }
 
     private String answer_id;
     private String detail;
-    private PicInfo Pics;
+    private PicInfo pic;
     private List<Poi> pois;
     private List<Blog> locals;
     private long created;
@@ -69,15 +69,8 @@ public class Answer implements Parcelable {
 
     private boolean fav;
 
-    private String user_id;
-    private String nickname;
-    private String user_pic;
-    private String country;
-    private int identity;
-    private String user_location;
-
-    private Question Question_Info;
-    private UserInfo userinfo; // Question_Info的userinfo
+    private Question question;
+    private UserInfo userinfo;
 
     public String getId() {
         return answer_id;
@@ -96,11 +89,11 @@ public class Answer implements Parcelable {
     }
 
     public PicInfo getPicInfo() {
-        return Pics;
+        return pic;
     }
 
     public void setPicInfo(PicInfo picInfo) {
-        this.Pics = picInfo;
+        this.pic = picInfo;
     }
 
     public List<Poi> getPois() {
@@ -168,57 +161,18 @@ public class Answer implements Parcelable {
     }
 
     public UserInfo getUserInfo() {
-        UserInfo userInfo = new UserInfo();
-        userInfo.setId(user_id);
-        userInfo.setNickname(nickname);
-        userInfo.setAvatar(user_pic);
-        try {
-            userInfo.setIdentity(identity);
-        } catch (NumberFormatException e) {
-            userInfo.setIdentity(0);
-        }
-        userInfo.setCountry(country);
-        userInfo.setLocation(user_location);
-
-        return userInfo;
+        return userinfo;
     }
 
     public void setUserInfo(UserInfo userInfo) {
-        if (userInfo == null) {
-            this.user_id = "";
-            this.nickname = "";
-            this.user_pic = "";
-            this.identity = 0;
-            this.country = "";
-            this.user_location = "";
-        } else {
-            this.user_id = userInfo.getId();
-            this.nickname = userInfo.getNickname();
-            this.user_pic = userInfo.getAvatar();
-            this.identity = userInfo.getIdentity();
-            this.country = userInfo.getCountry();
-            this.user_location = userInfo.getLocation();
-        }
+        this.userinfo = userInfo;
     }
 
     public Question getQuestion() {
-        if (Question_Info != null && userinfo != null) {
-            Question_Info.setUserInfo(userinfo);
-        }
-
-        return Question_Info;
+        return question;
     }
 
     public void setQuestion(Question question) {
-        this.Question_Info = question;
-    }
-
-    @Override
-    public String toString() {
-        return "Answer [answer_id=" + answer_id + ", detail=" + detail + ", pic_id=" + Pics.getId()
-                + ", created=" + created + ", user_id=" + user_id + ", nickname=" + nickname
-                + ", user_pic=" + user_pic + ", country=" + country + ", like_num=" + like_num
-                + ", identity=" + identity + ", Question_Info=" + Question_Info + ", userinfo="
-                + userinfo + "]";
+        this.question = question;
     }
 }

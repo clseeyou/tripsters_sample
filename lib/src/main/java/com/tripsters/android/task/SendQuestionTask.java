@@ -11,7 +11,7 @@ import java.io.IOException;
 public class SendQuestionTask extends AsyncTask<Void, Void, NetResult> {
 
     public interface SendQuestionTaskResult {
-        public void onTaskResult(NetResult result);
+        void onTaskResult(NetResult result);
     }
 
     private Context mContext;

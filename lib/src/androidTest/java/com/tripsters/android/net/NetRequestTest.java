@@ -10,10 +10,10 @@ import com.tripsters.android.model.NetResult;
 import com.tripsters.android.model.QuestionList;
 import com.tripsters.android.model.QuestionResult;
 import com.tripsters.android.model.UserInfoResult;
-import com.tripsters.android.util.Constants;
 
 public class NetRequestTest extends AndroidTestCase {
 
+    private static final int PAGE_COUNT = 20;
     private static final String TEST_UID = "11387";
     private static final String TEST_QID = "1663";
 
@@ -38,21 +38,21 @@ public class NetRequestTest extends AndroidTestCase {
     }
 
     public void testGetAnswer() throws Exception {
-        AnswerList tagList = NetRequest.getAnswer(getContext(), TEST_QID, 1, Constants.PAGE_COUNT);
+        AnswerList tagList = NetRequest.getAnswer(getContext(), TEST_QID, 1, PAGE_COUNT);
         assertNotNull(tagList);
         assertTrue(tagList.isSuccessful());
         assertFalse(tagList.getList().isEmpty());
     }
 
     public void testGetAllQuestion() throws Exception {
-        QuestionList questionList = NetRequest.getAllQuestion(getContext(), "", 1, Constants.PAGE_COUNT);
+        QuestionList questionList = NetRequest.getAllQuestion(getContext(), "", 1, PAGE_COUNT);
         assertNotNull(questionList);
         assertTrue(questionList.isSuccessful());
         assertFalse(questionList.getList().isEmpty());
     }
 
     public void testGetAppQuestion() throws Exception {
-        QuestionList questionList = NetRequest.getAppQuestion(getContext(), "", 1, Constants.PAGE_COUNT);
+        QuestionList questionList = NetRequest.getAppQuestion(getContext(), "", 1, PAGE_COUNT);
         assertNotNull(questionList);
         assertTrue(questionList.isSuccessful());
         assertFalse(questionList.getList().isEmpty());

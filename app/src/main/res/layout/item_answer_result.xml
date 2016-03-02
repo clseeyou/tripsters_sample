@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <com.tripsters.sample.view.PortraitTopView
+        android:id="@+id/lt_portrait"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/tb_margin"
+        android:layout_marginRight="@dimen/tb_margin"
+        android:layout_marginTop="20dp" />
+
+    <com.tripsters.sample.view.TTextView
+        android:id="@+id/tv_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/tb_margin"
+        android:layout_marginRight="@dimen/tb_margin"
+        android:layout_marginTop="15dp"
+        android:longClickable="true"
+        android:textColor="@color/tb_dark_grey"
+        android:textSize="@dimen/text_large_size" />
+
+    <ImageView
+        android:id="@+id/iv_pic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:maxHeight="@dimen/image_detail_max_size"
+        android:maxWidth="@dimen/image_detail_max_size" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="@dimen/tb_margin"
+        android:layout_marginRight="@dimen/tb_margin"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:id="@+id/tv_time_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textColor="@color/tb_light_grey"
+            android:textSize="@dimen/text_small_size" />
+
+        <FrameLayout
+            android:id="@+id/lt_question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawableLeft="@drawable/icon_question"
+                android:drawablePadding="5dp"
+                android:text="@string/requestion"
+                android:textColor="@color/tb_light_grey"
+                android:textSize="@dimen/text_small_size" />
+        </FrameLayout>
+
+    </RelativeLayout>
+
+</merge>

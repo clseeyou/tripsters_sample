@@ -5,7 +5,6 @@ import android.os.AsyncTask;
 
 import com.tripsters.android.model.AnswerList;
 import com.tripsters.android.net.NetRequest;
-import com.tripsters.android.util.Constants;
 
 import java.io.IOException;
 
@@ -17,8 +16,8 @@ public class GetAnswerTask extends AsyncTask<Void, Void, AnswerList> {
 
     private Context mContext;
     private String mQid;
-    private int mPage = 1;
-    private int mPageCount = Constants.PAGE_COUNT;
+    private int mPage;
+    private int mPageCount;
     private GetAnswerTaskResult mTaskResult;
 
     public GetAnswerTask(Context context, String qid, int page, int pageCount,

@@ -1,0 +1,26 @@
+<resources>
+
+    <declare-styleable name="RoundedImageView">
+        <attr name="corner_radius" format="dimension" />
+        <attr name="border_width" format="dimension" />
+        <attr name="border_color" format="color" />
+        <attr name="cover_border_width" format="dimension" />
+        <attr name="cover_border_color" format="color" />
+        <attr name="round_background" format="boolean" />
+        <attr name="android:scaleType" />
+        <attr name="fromDegrees" format="float|reference" />
+        <attr name="toDegrees" format="float|reference" />
+        <attr name="childSize" format="dimension|reference" />
+    </declare-styleable>
+    <declare-styleable name="PortraitView">
+        <attr name="type">
+            <enum name="item" value="0" />
+            <enum name="profile" value="1" />
+            <enum name="message" value="2" />
+            <enum name="order" value="3" />
+            <enum name="edit" value="4" />
+        </attr>
+        <attr name="border_width" />
+    </declare-styleable>
+
+</resources>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <FrameLayout
+        android:id="@+id/lt_pic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_gallery_photo" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawablePadding="5dp"
+            android:drawableTop="@drawable/icon_gallery_camera"
+            android:text="@string/gallery_camera"
+            android:textColor="@color/tb_light_grey"
+            android:textSize="@dimen/text_small_size" />
+    </FrameLayout>
+
+</merge>

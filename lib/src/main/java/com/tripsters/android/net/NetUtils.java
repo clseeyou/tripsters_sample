@@ -95,13 +95,7 @@ public class NetUtils {
                             final File file = new File(filePath);
 
                             if (file.exists()) {
-                                FileBody fileBody;
-
-                                if (TYPE_FILE_NAME.equals(key)) {
-                                    fileBody = new FileBody(file, ContentType.create("image/jpeg"));
-                                } else {
-                                    fileBody = new FileBody(file, ContentType.create("application/zip"));
-                                }
+                                FileBody fileBody = new FileBody(file);
 
                                 multipartEntityBuilder.addPart(pathKey, fileBody);
                             }

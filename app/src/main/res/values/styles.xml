@@ -1,8 +1,75 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="android:style/Theme">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@null</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@style/Animation.Activity</item>
+    </style>
+
+    <style name="Tripsters" />
+
+    <style name="Tripsters.Dialog" parent="android:Theme.Dialog">
+
+        <!-- 边框 -->
+        <item name="android:windowFrame">@null</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 半透明 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- 无标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 背景透明 -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 模糊 -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!-- 是否有覆盖 -->
+        <item name="android:windowContentOverlay">@null</item>
+        <!-- 动画 -->
+        <!-- <item name="android:windowAnimationStyle">@style/Animation</item> -->
+    </style>
+
+    <style name="Animation" parent="android:Animation" />
+
+    <style name="Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/window_enter_right</item>
+        <item name="android:activityOpenExitAnimation">@anim/window_exit_left</item>
+        <item name="android:activityCloseEnterAnimation">@anim/window_enter_left</item>
+        <item name="android:activityCloseExitAnimation">@anim/window_exit_right</item>
+        <item name="android:taskOpenEnterAnimation">@anim/window_enter_right</item>
+        <item name="android:taskOpenExitAnimation">@anim/window_exit_left</item>
+        <item name="android:taskCloseEnterAnimation">@anim/window_enter_left</item>
+        <item name="android:taskCloseExitAnimation">@anim/window_exit_right</item>
+        <item name="android:taskToFrontEnterAnimation">@anim/window_enter_right</item>
+        <item name="android:taskToFrontExitAnimation">@anim/window_exit_left</item>
+        <item name="android:taskToBackEnterAnimation">@anim/window_enter_left</item>
+        <item name="android:taskToBackExitAnimation">@anim/window_exit_right</item>
+    </style>
+
+    <!-- ShareMenuDialog 弹入弹出动画 -->
+    <style name="Animation.WindowBubble">
+        <item name="android:windowEnterAnimation">@anim/window_bubble_up</item>
+        <item name="android:windowExitAnimation">@anim/window_bubble_down</item>
+    </style>
+
+    <style name="Animation.WindowFade">
+        <item name="android:windowEnterAnimation">@anim/window_fade_in</item>
+        <item name="android:windowExitAnimation">@anim/window_fade_out</item>
     </style>
 
 </resources>

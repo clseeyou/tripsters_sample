@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <com.tripsters.sample.view.TListView
+        android:id="@+id/pd_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/tb_bg_white" />
+
+</FrameLayout>
