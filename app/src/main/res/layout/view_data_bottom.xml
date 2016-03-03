@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <ImageView
+        android:id="@+id/iv_pic"
+        android:layout_width="@dimen/blog_comment_pic_size"
+        android:layout_height="@dimen/blog_comment_pic_size"
+        android:layout_centerVertical="true"
+        android:scaleType="centerCrop" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/iv_pic"
+        android:orientation="vertical" >
+
+        <com.tripsters.sample.view.TTextView
+            android:id="@+id/tv_nick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="@color/tb_blue"
+            android:textSize="@dimen/text_middle_size" />
+
+        <com.tripsters.sample.view.TTextView
+            android:id="@+id/tv_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@color/tb_light_grey"
+            android:textSize="@dimen/text_middle_size" />
+    </LinearLayout>
+
+</merge>

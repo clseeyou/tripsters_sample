@@ -32,6 +32,39 @@ public class ImageUtils {
      *
      * @param context
      * @param imageView 图片ImageView
+     * @param picInfo 图片对象
+     * @param picType 图片对象类型
+     */
+    public static void setImage(Context context, ImageView imageView, PicInfo picInfo,
+                                PicInfo.PicType picType, Rect rect) {
+        setImage(context, imageView, picInfo, picType, rect, R.color.tb_bg_grey);
+    }
+
+    /**
+     * 显示图片
+     *
+     * @param context
+     * @param imageView 图片ImageView
+     * @param picInfo 图片对象
+     * @param picType 图片对象类型
+     */
+    public static void setImage(Context context, ImageView imageView, PicInfo picInfo,
+                                PicInfo.PicType picType, Rect rect, int defaultResId) {
+        PicInfo.Pic pic = picType.getPic(picInfo);
+
+        if (pic == null || TextUtils.isEmpty(pic.getPic())) {
+            imageView.setImageResource(defaultResId);
+        } else {
+            Picasso.with(context).load(pic.getPic()).placeholder(defaultResId)
+                    .resize(rect.width(), rect.height()).centerCrop().into(imageView);
+        }
+    }
+
+    /**
+     * 显示图片
+     *
+     * @param context
+     * @param imageView 图片ImageView
      * @param mediaInfo 图片对象
      */
     public static void setImage(Context context, ImageView imageView, MediaInfo mediaInfo, Rect rect) {
@@ -98,6 +131,24 @@ public class ImageUtils {
         }
     }
 
+    /**
+     * 设置帖子评论图片
+     *
+     * @param context
+     * @param ivPic
+     * @param picInfo
+     * @param picType
+     */
+    public static void setDataBottomPic(Context context, ImageView ivPic, PicInfo picInfo,
+                                        PicInfo.PicType picType) {
+        ViewGroup.LayoutParams params = ivPic.getLayoutParams();
+        params.width = context.getResources().getDimensionPixelSize(R.dimen.blog_comment_pic_size);
+        params.height = context.getResources().getDimensionPixelSize(R.dimen.blog_comment_pic_size);
+        ivPic.setLayoutParams(params);
+
+        setImage(context, ivPic, picInfo, picType,
+                new Rect(0, 0, params.width, params.height));
+    }
 
     /**
      * 显示限制大小的图片

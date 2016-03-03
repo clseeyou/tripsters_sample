@@ -72,4 +72,58 @@
         <item name="android:windowExitAnimation">@anim/window_fade_out</item>
     </style>
 
+    <style name="divider_view">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">@dimen/tb_divider_height</item>
+        <item name="android:background">@drawable/bg_divider</item>
+    </style>
+
+    <style name="title_textview">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">@dimen/setting_item_title_height</item>
+        <item name="android:layout_marginLeft">@dimen/tb_margin</item>
+        <item name="android:layout_marginRight">@dimen/tb_margin</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:gravity">bottom</item>
+        <item name="android:textColor">@color/tb_light_grey</item>
+        <item name="android:textSize">@dimen/text_middle_size</item>
+    </style>
+
+    <style name="profile_info_content_layout">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">@dimen/setting_item_content_height</item>
+        <item name="android:background">@drawable/bg_item</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="profile_info_title_textview">
+        <item name="android:layout_width">55dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_marginLeft">@dimen/tb_margin</item>
+        <item name="android:textColor">@color/tb_light_grey</item>
+        <item name="android:textSize">@dimen/text_middle_size</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="profile_info_content_textview">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingRight">@dimen/tb_margin</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:textColor">@color/tb_dark_grey</item>
+        <item name="android:textSize">@dimen/text_middle_size</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="profile_info_content_edittext" parent="profile_info_content_textview">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@null</item>
+        <item name="android:textColorHint">@color/tb_light_grey</item>
+        <item name="android:gravity">right</item>
+    </style>
+
 </resources>

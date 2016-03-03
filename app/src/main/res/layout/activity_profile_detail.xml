@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/tb_bg_white" >
+
+    <com.tripsters.sample.view.TitleBar
+        android:id="@+id/titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/titlebar_height"
+        android:background="@drawable/bg_title" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/titlebar"
+        android:fadingEdge="none"
+        android:fillViewport="true"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                style="@style/title_textview"
+                android:text="@string/profile_edit_basic" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_white_line"
+                android:orientation="vertical" >
+
+                <LinearLayout style="@style/profile_info_content_layout" >
+
+                    <TextView
+                        style="@style/profile_info_title_textview"
+                        android:text="@string/profile_edit_name" />
+
+                    <TextView
+                        android:id="@+id/et_edit_name"
+                        style="@style/profile_info_content_edittext" />
+                </LinearLayout>
+
+                <View style="@style/divider_view" />
+
+                <LinearLayout style="@style/profile_info_content_layout" >
+
+                    <TextView
+                        style="@style/profile_info_title_textview"
+                        android:text="@string/profile_edit_gender" />
+
+                    <TextView
+                        android:id="@+id/tv_edit_gender"
+                        style="@style/profile_info_content_edittext" />
+                </LinearLayout>
+
+                <View style="@style/divider_view" />
+
+                <LinearLayout style="@style/profile_info_content_layout" >
+
+                    <TextView
+                        style="@style/profile_info_title_textview"
+                        android:text="@string/profile_edit_address" />
+
+                    <TextView
+                        android:id="@+id/et_edit_address"
+                        style="@style/profile_info_content_edittext" />
+                </LinearLayout>
+
+                <View style="@style/divider_view" />
+
+                <LinearLayout style="@style/profile_info_content_layout" >
+
+                    <TextView
+                        style="@style/profile_info_title_textview"
+                        android:text="@string/profile_edit_nation" />
+
+                    <TextView
+                        android:id="@+id/et_edit_nation"
+                        style="@style/profile_info_content_edittext" />
+                </LinearLayout>
+
+                <View style="@style/divider_view" />
+
+                <LinearLayout style="@style/profile_info_content_layout" >
+
+                    <TextView
+                        style="@style/profile_info_title_textview"
+                        android:text="@string/profile_edit_occupation" />
+
+                    <TextView
+                        android:id="@+id/et_edit_occupation"
+                        style="@style/profile_info_content_edittext" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                style="@style/title_textview"
+                android:text="@string/profile_edit_intro" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_white_line" >
+
+                <TextView
+                    android:id="@+id/et_edit_intro"
+                    style="@style/profile_info_content_edittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/tb_margin"
+                    android:gravity="top"
+                    android:minHeight="85dp"
+                    android:paddingBottom="13dp"
+                    android:paddingTop="13dp"
+                    android:singleLine="false" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_edit_trip_title"
+                style="@style/title_textview"
+                android:text="@string/profile_edit_trip" />
+
+            <RelativeLayout
+                android:id="@+id/lt_edit_trip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_white_line" >
+
+                <TextView
+                    android:id="@+id/et_edit_trip"
+                    style="@style/profile_info_content_edittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/tb_margin"
+                    android:gravity="top"
+                    android:hint="@string/profile_edit_trip_hint"
+                    android:minHeight="85dp"
+                    android:paddingBottom="13dp"
+                    android:paddingTop="13dp"
+                    android:singleLine="false" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/setting_item_title_height" />
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

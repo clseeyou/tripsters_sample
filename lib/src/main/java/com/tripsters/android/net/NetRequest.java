@@ -355,6 +355,112 @@ public class NetRequest {
         return ModelFactory.getInstance().create(response, UserInfoResult.class);
     }
 
+    /**
+     * 获取用户信息
+     *
+     * @param context context
+     * @param uid     用户的id
+     * @return 用户信息
+     * @throws IOException
+     */
+    public static UserInfoResult getUserInfo(Context context, String uid)
+            throws IOException {
+        Bundle params = new Bundle();
+        params.putString(PARAM_MODEL, PARAM_MODEL_VALUE_PARTNER);
+        params.putString(PARAM_CONTROLLER, PARAM_CONTROLLER_VALUE_USER);
+        params.putString(PARAM_ACTION, "getUserInfo");
+        // params
+        Bundle paramKeys = new Bundle();
+        paramKeys.putString("user_id", uid);
+        params.putBundle(PARAM_KEYS_GET, paramKeys);
+
+        String response = request(context, params);
+
+        return ModelFactory.getInstance().create(response, UserInfoResult.class);
+    }
+
+    /**
+     * 获取用户的提问
+     *
+     * @param context  context
+     * @param uid      用户的id
+     * @param page     第几页，从1开始
+     * @param pagesize 每页的数量，默认为20，最大为50，当返回数量<pagesize，意味着没有更多了
+     * @return 问题列表
+     * @throws IOException
+     */
+    public static QuestionList getUserQuestion(Context context, String uid, int page, int pagesize)
+            throws IOException {
+        Bundle params = new Bundle();
+        params.putString(PARAM_MODEL, PARAM_MODEL_VALUE_PARTNER);
+        params.putString(PARAM_CONTROLLER, PARAM_CONTROLLER_VALUE_USER);
+        params.putString(PARAM_ACTION, "getUserQuestion");
+        // params
+        Bundle paramKeys = new Bundle();
+        paramKeys.putString("user_id", uid);
+        paramKeys.putString("page", page + "");
+        paramKeys.putString("pagesize", pagesize + "");
+        params.putBundle(PARAM_KEYS_GET, paramKeys);
+
+        String response = request(context, params);
+
+        return ModelFactory.getInstance().create(response, QuestionList.class);
+    }
+
+    /**
+     * 获取用户的回答
+     *
+     * @param context  context
+     * @param uid      用户的id
+     * @param page     第几页，从1开始
+     * @param pagesize 每页的数量，默认为20，最大为50，当返回数量<pagesize，意味着没有更多了
+     * @return 回答列表
+     * @throws IOException
+     */
+    public static AnswerList getUserAnswer(Context context, String uid, int page, int pagesize)
+            throws IOException {
+        Bundle params = new Bundle();
+        params.putString(PARAM_MODEL, PARAM_MODEL_VALUE_PARTNER);
+        params.putString(PARAM_CONTROLLER, PARAM_CONTROLLER_VALUE_USER);
+        params.putString(PARAM_ACTION, "getUserAnswer");
+        // params
+        Bundle paramKeys = new Bundle();
+        paramKeys.putString("user_id", uid);
+        paramKeys.putString("page", page + "");
+        paramKeys.putString("pagesize", pagesize + "");
+        params.putBundle(PARAM_KEYS_GET, paramKeys);
+
+        String response = request(context, params);
+
+        return ModelFactory.getInstance().create(response, AnswerList.class);
+    }
+
+    /**
+     * 用户push的绑定更新
+     *
+     * @param context   context
+     * @param uid       用户的id
+     * @param channelId push的channelId
+     * @return 绑定更新结果
+     * @throws IOException
+     */
+    public static NetResult updateUserInfo(Context context, String uid, String channelId)
+            throws IOException {
+        Bundle params = new Bundle();
+        params.putString(PARAM_MODEL, PARAM_MODEL_VALUE_PARTNER);
+        params.putString(PARAM_CONTROLLER, PARAM_CONTROLLER_VALUE_USER);
+        params.putString(PARAM_ACTION, "updateUserInfo");
+        // params
+        Bundle paramKeys = new Bundle();
+        paramKeys.putString("user_id", uid);
+        paramKeys.putString("channel_id", channelId);
+        params.putBundle(PARAM_KEYS_POST, paramKeys);
+
+        String response = request(context, params);
+
+        return ModelFactory.getInstance().create(response, NetResult.class);
+    }
+
     private static String request(Context context, Bundle params) throws IOException {
         Request request = getRequest(context, params);
 

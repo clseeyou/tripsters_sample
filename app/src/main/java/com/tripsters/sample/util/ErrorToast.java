@@ -7,8 +7,10 @@ import android.widget.Toast;
 
 import com.tripsters.android.model.ListNetResult;
 import com.tripsters.android.model.NetResult;
+import com.tripsters.android.model.UserInfoResult;
 import com.tripsters.sample.R;
 import com.tripsters.sample.TripstersApplication;
+import com.tripsters.sample.view.ProfileView;
 import com.tripsters.sample.view.TListView;
 
 public class ErrorToast {
@@ -149,6 +151,31 @@ public class ErrorToast {
                 return true;
             } else {
                 view.endLoadFailed(result.getErrmsg(), showMessageToast);
+
+                return false;
+            }
+        }
+    }
+
+    /**
+     * 对网络数据返回进行测试
+     *
+     * @param view
+     * @param result
+     * @return true：返回成功 false：返回失败
+     */
+    public boolean checkNetResult(ProfileView view, UserInfoResult result) {
+        if (result == null) {
+            view.endLoadFailed();
+
+            return false;
+        } else {
+            if (result.isSuccessful()) {
+                view.endLoadSuccess(result.getUserInfo());
+
+                return true;
+            } else {
+                view.endLoadFailed(result.getErrmsg());
 
                 return false;
             }

@@ -4,27 +4,27 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.tripsters.android.model.Question;
-import com.tripsters.sample.view.QuestionItemView;
+import com.tripsters.android.model.Answer;
+import com.tripsters.sample.view.AnswerItemView;
 
-public class QuestionListAdapter extends TAdapter<Question> {
+public class AnswerListAdapter extends TAdapter<Answer> {
 
     private Context mContext;
     private boolean mPortraitVisible = true;
-    private boolean mAnswerVisible = true;
+    private boolean mReplyVisible = false;
 
-    public QuestionListAdapter(Context context) {
-        this(context, true, true);
+    public AnswerListAdapter(Context context) {
+        this(context, true, false);
     }
 
-    public QuestionListAdapter(Context context, boolean portraitVisible) {
+    public AnswerListAdapter(Context context, boolean portraitVisible) {
         this(context, portraitVisible, false);
     }
 
-    public QuestionListAdapter(Context context, boolean portraitVisible, boolean answerVisible) {
+    public AnswerListAdapter(Context context, boolean portraitVisible, boolean replyVisible) {
         this.mContext = context;
         this.mPortraitVisible = portraitVisible;
-        this.mAnswerVisible = answerVisible;
+        this.mReplyVisible = replyVisible;
     }
 
     @Override
@@ -37,7 +37,7 @@ public class QuestionListAdapter extends TAdapter<Question> {
     }
 
     @Override
-    public Question getItem(int position) {
+    public Answer getItem(int position) {
         return mList.get(position);
     }
 
@@ -48,19 +48,18 @@ public class QuestionListAdapter extends TAdapter<Question> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        QuestionItemView itemView;
-
+        AnswerItemView itemView;
         if (convertView == null) {
-            itemView = new QuestionItemView(mContext);
+            itemView = new AnswerItemView(mContext);
             itemView.setPortraitVisible(mPortraitVisible);
-            itemView.setDetailVisible(false);
-            itemView.setAnswerVisible(mAnswerVisible);
+            itemView.setReplyVisible(mReplyVisible);
         } else {
-            itemView = (QuestionItemView) convertView;
+            itemView = (AnswerItemView) convertView;
         }
 
         itemView.update(getItem(position));
 
         return itemView;
     }
+
 }

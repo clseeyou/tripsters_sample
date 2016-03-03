@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/bg_white"
+                android:orientation="vertical" >
+
+                <com.tripsters.sample.view.ProfileItemView
+                    android:id="@+id/item_profile"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/setting_item_content_height" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/bg_white"
+                android:orientation="vertical" >
+
+                <com.tripsters.sample.view.ProfileItemView
+                    android:id="@+id/item_questions"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/setting_item_content_height" />
+
+                <View style="@style/divider_view" />
+
+                <com.tripsters.sample.view.ProfileItemView
+                    android:id="@+id/item_answers"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/setting_item_content_height" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</merge>

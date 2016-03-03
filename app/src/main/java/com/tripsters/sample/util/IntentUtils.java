@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import com.tripsters.android.model.Question;
 import com.tripsters.android.model.UserInfo;
 import com.tripsters.sample.LoginActivity;
+import com.tripsters.sample.ProfileActivity;
 import com.tripsters.sample.QuestionDetailActivity;
 import com.tripsters.sample.TGalleryActivity;
 
@@ -34,9 +35,9 @@ public class IntentUtils {
      */
     public static void startUserInfoActivity(Context context, UserInfo userInfo) {
         if (userInfo != null) {
-//            Intent intent = new Intent(context, ProfileActivity.class);
-//            intent.putExtra(Constants.Extra.USERINFO, userInfo);
-//            context.startActivity(intent);
+            Intent intent = new Intent(context, ProfileActivity.class);
+            intent.putExtra(Constants.Extra.USERINFO, userInfo);
+            context.startActivity(intent);
         }
     }
 

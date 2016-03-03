@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import com.tripsters.android.model.Blog;
 import com.tripsters.android.model.City;
 import com.tripsters.android.model.Country;
+import com.tripsters.android.model.Gender;
 import com.tripsters.android.model.Identity;
 import com.tripsters.android.model.MediaInfo;
 import com.tripsters.android.model.PicInfo;
@@ -312,4 +313,13 @@ public class UserUtils {
         return builder.toString();
     }
 
+    public static String getGender(Context context, Gender gender) {
+        if (gender == Gender.MALE) {
+            return context.getString(R.string.profile_info_gender_male);
+        } else if (gender == Gender.FEMALE) {
+            return context.getString(R.string.profile_info_gender_female);
+        } else {
+            return context.getString(R.string.profile_info_gender_female);
+        }
+    }
 }

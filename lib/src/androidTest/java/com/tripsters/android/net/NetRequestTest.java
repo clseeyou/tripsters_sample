@@ -83,4 +83,31 @@ public class NetRequestTest extends AndroidTestCase {
         assertTrue(UserInfoResult.isSuccessful());
         assertNotNull(UserInfoResult.getUserInfo());
     }
+
+    public void testGetUserInfo() throws Exception {
+        UserInfoResult UserInfoResult = NetRequest.getUserInfo(getContext(), TEST_UID);
+        assertNotNull(UserInfoResult);
+        assertTrue(UserInfoResult.isSuccessful());
+        assertNotNull(UserInfoResult.getUserInfo());
+    }
+
+    public void testGetUserQuestion() throws Exception {
+        QuestionList questionList = NetRequest.getUserQuestion(getContext(), TEST_UID, 1, PAGE_COUNT);
+        assertNotNull(questionList);
+        assertTrue(questionList.isSuccessful());
+        assertFalse(questionList.getList().isEmpty());
+    }
+
+    public void testGetUserAnswer() throws Exception {
+        AnswerList tagList = NetRequest.getUserAnswer(getContext(), TEST_UID, 1, PAGE_COUNT);
+        assertNotNull(tagList);
+        assertTrue(tagList.isSuccessful());
+        assertFalse(tagList.getList().isEmpty());
+    }
+
+    public void testUpdateUserInfo() throws Exception {
+        NetResult netResult = NetRequest.updateUserInfo(getContext(), TEST_UID, "123456");
+        assertNotNull(netResult);
+        assertTrue(netResult.isSuccessful());
+    }
 }
