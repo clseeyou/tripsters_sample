@@ -27,7 +27,7 @@ import com.tripsters.sample.view.TListView.ListUpdateListener;
 public class QuestionListFragment extends BaseFragment {
 
     private QuestionListAdapter mAdapter;
-    private TListView mPullDownView;
+    private TListView mTbListView;
 
     private BroadcastReceiver mReceiver;
 
@@ -35,10 +35,10 @@ public class QuestionListFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_questionlist, container, false);
 
-        mPullDownView = (TListView) v.findViewById(R.id.pd_list);
-        mPullDownView.setEmptyType(Type.QUESTIONS);
+        mTbListView = (TListView) v.findViewById(R.id.pd_list);
+        mTbListView.setEmptyType(Type.QUESTIONS);
         mAdapter = new QuestionListAdapter(getActivity());
-        mPullDownView.setAdapter(mAdapter, new ListUpdateListener() {
+        mTbListView.setAdapter(mAdapter, new ListUpdateListener() {
 
             @Override
             public void loadPageData(int page) {
@@ -46,7 +46,7 @@ public class QuestionListFragment extends BaseFragment {
             }
         });
 
-        mPullDownView.setOnItemClickListener(new OnItemClickListener() {
+        mTbListView.setOnItemClickListener(new OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -59,10 +59,10 @@ public class QuestionListFragment extends BaseFragment {
             @Override
             public void onReceive(Context context, Intent intent) {
                 if (Constants.Action.CHANGE_LOCATION.equals(intent.getAction())) {
-                    mPullDownView.clear();
-                    mPullDownView.firstUpdate();
+                    mTbListView.clear();
+                    mTbListView.firstUpdate();
                 } else if (Constants.Action.QUESTION_SUCCESS.equals(intent.getAction())) {
-                    mPullDownView.reload();
+                    mTbListView.reload();
                 }
             }
         };
@@ -70,7 +70,7 @@ public class QuestionListFragment extends BaseFragment {
         setFilterAction(intentFilter);
         getActivity().registerReceiver(mReceiver, intentFilter);
 
-        mPullDownView.firstUpdate();
+        mTbListView.firstUpdate();
 
         return v;
     }
@@ -91,9 +91,7 @@ public class QuestionListFragment extends BaseFragment {
     }
 
     protected void setResultInfo(QuestionList result) {
-        if (ErrorToast.getInstance().checkNetResult(mPullDownView, result, false)) {
-            mAdapter.notifyData(result.getList());
-        }
+        ErrorToast.getInstance().checkNetResult(mTbListView, result, false);
     }
 
     @Override

@@ -80,6 +80,23 @@ public class IntentUtils {
     }
 
     /**
+     * 发送登陆成功广播
+     *
+     * @param context
+     * @param uid
+     */
+    public static void sendLoginBroadcast(Context context, String uid) {
+        if (!LoginUser.isLogin(context) || !LoginUser.getId().equals(uid)) {
+            return;
+        }
+
+        Intent intent = new Intent();
+        intent.setAction(Constants.Action.LOGIN_SUCCESS);
+        intent.putExtra(Constants.Extra.USER_ID, uid);
+        context.sendBroadcast(intent);
+    }
+
+    /**
      * 发送提问成功广播
      *
      * @param context

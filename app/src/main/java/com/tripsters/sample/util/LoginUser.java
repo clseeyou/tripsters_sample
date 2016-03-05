@@ -15,7 +15,10 @@ public class LoginUser {
 
     private static final String COUNTRY_SP = "country_sp";
 
+    private static final String PUSH_SP = "push_sp";
+
     private static final String KEY_BLACK_TAG = "black_tag";
+    private static final String KEY_CHANNEL_ID = "channel_id";
 
     static class UserKey {
         public static final String KEY_ID = "id";
@@ -106,6 +109,49 @@ public class LoginUser {
         setUser(TripstersApplication.mContext, userInfo);
     }
 
+    synchronized public static void clearUser(Context context) {
+        mLoginUser = null;
+
+        SharedPreferences versionPrefs = getUserSp(context);
+        versionPrefs.edit().clear().commit();
+    }
+
+    synchronized public static void clearUserLogin() {
+        clearUser(TripstersApplication.mContext);
+    }
+
+    synchronized public static void setChannelId(Context context, String channelId) {
+        saveChannelIdToSp(context, channelId);
+    }
+
+    synchronized public static void setChannelId(String channelId) {
+        setChannelId(TripstersApplication.mContext, channelId);
+    }
+
+    synchronized public static String getChannelId(Context context) {
+        return getChannelIdFromSp(context);
+    }
+
+    synchronized public static String getChannelId() {
+        return getChannelIdFromSp(TripstersApplication.mContext);
+    }
+
+    synchronized public static void clearChannelId(Context context) {
+        setChannelId(context, "");
+    }
+
+    synchronized public static void clearChannelId() {
+        setChannelId(TripstersApplication.mContext, "");
+    }
+
+    synchronized public static boolean isBind(Context context) {
+        return TextUtils.isEmpty(getChannelIdFromSp(context));
+    }
+
+    synchronized public static boolean isBind() {
+        return isBind(TripstersApplication.mContext);
+    }
+
     synchronized public static Country getCountry(Context context) {
         if (mChangeCountry == null) {
             mChangeCountry = getChangeCountryFromSp(context);
@@ -126,17 +172,6 @@ public class LoginUser {
 
     synchronized public static void setCountry(final Country country) {
         setCountry(TripstersApplication.mContext, country);
-    }
-
-    synchronized public static void clearUserLogin(Context context) {
-        mLoginUser = null;
-
-        SharedPreferences versionPrefs = getUserSp(context);
-        versionPrefs.edit().clear().commit();
-    }
-
-    synchronized public static void clearUserLogin() {
-        clearUserLogin(TripstersApplication.mContext);
     }
 
     private static void saveUserInfoToSp(Context context, UserInfo userInfo) {
@@ -275,6 +310,14 @@ public class LoginUser {
         return country;
     }
 
+    private static void saveChannelIdToSp(Context context, String channelId) {
+        getPushSp(context).edit().putString(KEY_CHANNEL_ID, channelId).commit();
+    }
+
+    private static String getChannelIdFromSp(Context context) {
+        return getPushSp(context).getString(KEY_CHANNEL_ID, "");
+    }
+
     private static SharedPreferences getUserSp(Context context) {
         if (context == null) {
             return TripstersApplication.mContext.getSharedPreferences(USERINFO_SP, 0);
@@ -288,6 +331,14 @@ public class LoginUser {
             return TripstersApplication.mContext.getSharedPreferences(COUNTRY_SP, 0);
         } else {
             return context.getSharedPreferences(COUNTRY_SP, 0);
+        }
+    }
+
+    private static SharedPreferences getPushSp(Context context) {
+        if (context == null) {
+            return TripstersApplication.mContext.getSharedPreferences(PUSH_SP, 0);
+        } else {
+            return context.getSharedPreferences(PUSH_SP, 0);
         }
     }
 }

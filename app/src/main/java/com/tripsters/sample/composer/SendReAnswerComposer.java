@@ -82,11 +82,11 @@ public class SendReAnswerComposer extends BaseComposer {
         return false;
     }
 
-    @Override
-    public String getSendContent(Context context) {
-        return context.getString(R.string.answer_content, mAnswer.getUserInfo().getNickname(),
-                getContent());
-    }
+//    @Override
+//    public String getSendContent(Context context) {
+//        return context.getString(R.string.answer_content, mAnswer.getUserInfo().getNickname(),
+//                getContent());
+//    }
 
     @Override
     public void send(final Context context) {

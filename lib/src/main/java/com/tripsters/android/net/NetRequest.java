@@ -1,6 +1,8 @@
 package com.tripsters.android.net;
 
 import android.content.Context;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -43,6 +45,8 @@ public class NetRequest {
     private static final String PARAM_VERSION = "version";
     private static final String PARAM_VERSION_VALUE = "sdk1";
     private static final String PARAM_LANGUAGE = "language";
+
+    private static String sAppId;
 
     private static class Request {
         String url;
@@ -436,6 +440,34 @@ public class NetRequest {
     }
 
     /**
+     * 获取用户收到的回复
+     *
+     * @param context  context
+     * @param uid      用户的id
+     * @param page     第几页，从1开始
+     * @param pagesize 每页的数量，默认为20，最大为50，当返回数量<pagesize，意味着没有更多了
+     * @return 回答列表
+     * @throws IOException
+     */
+    public static AnswerList getUserAnswered(Context context, String uid, int page, int pagesize)
+            throws IOException {
+        Bundle params = new Bundle();
+        params.putString(PARAM_MODEL, PARAM_MODEL_VALUE_PARTNER);
+        params.putString(PARAM_CONTROLLER, PARAM_CONTROLLER_VALUE_USER);
+        params.putString(PARAM_ACTION, "getUserAnswered");
+        // params
+        Bundle paramKeys = new Bundle();
+        paramKeys.putString("user_id", uid);
+        paramKeys.putString("page", page + "");
+        paramKeys.putString("pagesize", pagesize + "");
+        params.putBundle(PARAM_KEYS_GET, paramKeys);
+
+        String response = request(context, params);
+
+        return ModelFactory.getInstance().create(response, AnswerList.class);
+    }
+
+    /**
      * 用户push的绑定更新
      *
      * @param context   context
@@ -547,14 +579,41 @@ public class NetRequest {
     }
 
     private static String getAppId(Context context) {
-        if (DebugConfig.DEBUG) {
-            return "jieda";
-        } else {
-            return "";
+        if (TextUtils.isEmpty(sAppId)) {
+            sAppId = getMetaValue(context, "tripsters_appid");
         }
+
+        return sAppId;
     }
 
     private static String getAppLang() {
         return Locale.getDefault().toString();
+    }
+
+    // 获取appid
+    private static String getMetaValue(Context context, String metaKey) {
+        Bundle metaData = null;
+        String metaValue = null;
+
+        if (context == null || metaKey == null) {
+            return null;
+        }
+
+        try {
+            ApplicationInfo applicationInfo = context.getPackageManager()
+                    .getApplicationInfo(context.getPackageName(), PackageManager.GET_META_DATA);
+
+            if (null != applicationInfo) {
+                metaData = applicationInfo.metaData;
+            }
+
+            if (null != metaData) {
+                metaValue = metaData.getString(metaKey);
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+
+        }
+
+        return metaValue;
     }
 }

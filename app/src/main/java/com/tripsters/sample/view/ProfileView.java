@@ -1,23 +1,22 @@
 package com.tripsters.sample.view;
 
-import java.util.Date;
-
 import android.content.Context;
 import android.content.Intent;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.tripsters.android.model.UserInfo;
 import com.tripsters.sample.ProfileAnswersActivity;
 import com.tripsters.sample.ProfileDetailActivity;
 import com.tripsters.sample.ProfileQuestionsActivity;
 import com.tripsters.sample.R;
-import com.tripsters.android.model.UserInfo;
-import com.tripsters.android.net.NetRequest;
+import com.tripsters.sample.ReceivedAnswerListActivity;
 import com.tripsters.sample.util.Constants;
 import com.tripsters.sample.util.ErrorToast;
 import com.tripsters.sample.util.UserUtils;
-import com.tripsters.sample.util.Utils;
+
+import java.util.Date;
 
 public class ProfileView extends PullDownView {
 
@@ -30,6 +29,8 @@ public class ProfileView extends PullDownView {
     private ProfileItemView mProfileView;
     private ProfileItemView mQuetionsView;
     private ProfileItemView mAnswersView;
+    private LinearLayout mReceivedLt;
+    private ProfileItemView mReceivedAnswersView;
 
     private UpdateListener mListener;
 
@@ -49,6 +50,8 @@ public class ProfileView extends PullDownView {
         mProfileView = (ProfileItemView) view.findViewById(R.id.item_profile);
         mQuetionsView = (ProfileItemView) view.findViewById(R.id.item_questions);
         mAnswersView = (ProfileItemView) view.findViewById(R.id.item_answers);
+        mReceivedLt = (LinearLayout) view.findViewById(R.id.lt_received);
+        mReceivedAnswersView = (ProfileItemView) view.findViewById(R.id.item_received_answers);
     }
 
     public void update(UserInfo userInfo) {
@@ -93,6 +96,22 @@ public class ProfileView extends PullDownView {
                             getContext().startActivity(intent);
                         }
                     });
+            if (UserUtils.isMyself(mUserInfo.getId())) {
+                mReceivedLt.setVisibility(View.VISIBLE);
+
+                mReceivedAnswersView.update(R.drawable.icon_received_answers
+                        , R.string.titlebar_received_answers,
+                        new OnClickListener() {
+
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent = new Intent(getContext(), ReceivedAnswerListActivity.class);
+                                getContext().startActivity(intent);
+                            }
+                        });
+            } else {
+                mReceivedLt.setVisibility(View.GONE);
+            }
         }
     }
 

@@ -10,6 +10,7 @@ import com.tripsters.android.task.LoginTask;
 import com.tripsters.android.task.LoginTask.LoginTaskResult;
 import com.tripsters.sample.util.CheckUtils;
 import com.tripsters.sample.util.ErrorToast;
+import com.tripsters.sample.util.IntentUtils;
 import com.tripsters.sample.util.LoginUser;
 import com.tripsters.sample.view.TitleBar;
 import com.tripsters.sample.view.TitleBar.LeftType;
@@ -69,6 +70,14 @@ public class LoginActivity extends BaseActivity {
 
                             if (ErrorToast.getInstance().checkNetResult(result)) {
                                 LoginUser.setUser(result.getUserInfo());
+
+                                IntentUtils.sendLoginBroadcast(TripstersApplication.mContext,
+                                        LoginUser.getId());
+
+                                if (LoginUser.isBind()) {
+                                    TripstersPushMessageReceiver.updateUserInfo(LoginUser.getId(),
+                                            LoginUser.getChannelId());
+                                }
 
                                 finish();
                             }

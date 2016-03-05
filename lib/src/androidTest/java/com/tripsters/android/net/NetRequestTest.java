@@ -110,4 +110,11 @@ public class NetRequestTest extends AndroidTestCase {
         assertNotNull(netResult);
         assertTrue(netResult.isSuccessful());
     }
+
+    public void testGetUserAnswered() throws Exception {
+        AnswerList tagList = NetRequest.getUserAnswered(getContext(), TEST_UID, 1, PAGE_COUNT);
+        assertNotNull(tagList);
+        assertTrue(tagList.isSuccessful());
+        assertFalse(tagList.getList().isEmpty());
+    }
 }

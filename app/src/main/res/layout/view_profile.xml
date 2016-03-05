@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge xmlns:android="http://schemas.android.com/apk/res/android" >
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="vertical" >
+        android:scrollbars="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -17,7 +17,7 @@
                 android:layout_marginBottom="5dp"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/bg_white"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <com.tripsters.sample.view.ProfileItemView
                     android:id="@+id/item_profile"
@@ -30,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:background="@drawable/bg_white"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <com.tripsters.sample.view.ProfileItemView
                     android:id="@+id/item_questions"
@@ -45,6 +45,20 @@
                     android:layout_height="@dimen/setting_item_content_height" />
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/lt_received"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/bg_white"
+                android:orientation="vertical">
+
+                <com.tripsters.sample.view.ProfileItemView
+                    android:id="@+id/item_received_answers"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/setting_item_content_height" />
+
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 
