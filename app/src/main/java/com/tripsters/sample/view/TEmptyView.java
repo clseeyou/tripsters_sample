@@ -15,16 +15,9 @@ public class TEmptyView extends FrameLayout {
     private TextView mEmptySimpleTv;
 
     public enum Type {
-        SEARCH_QUESTION(-1), DEFULT(R.string.empty_default), QUESTION_DETAIL(
-                R.string.empty_question_detail), TRIPS(R.string.empty_trips), QUESTIONS(
-                R.string.empty_questions), ANSWERS(R.string.empty_answers), BLOGS(
-                R.string.empty_blogs), COMMENTS(R.string.empty_comments), GROUPONS(
-                R.string.empty_groupons), FAV_QUESTIONS(R.string.empty_fav_questions), FAV_BLOGS(
-                R.string.empty_fav_blogs), GROUPS(R.string.empty_groups), POIS(R.string.empty_pois), FRIENDS(
-                R.string.empty_friends), FANS(R.string.empty_fans), FAV_USERS(
-                R.string.empty_fav_users), GROUP_MEMBERS(R.string.empty_group_members), SYSTEM_MESSAGES(
-                R.string.empty_system_messages), DRAFTS(R.string.empty_drafts), SEARCH(
-                R.string.empty_search);
+        DEFULT(R.string.empty_default), QUESTION_DETAIL(
+                R.string.empty_question_detail), QUESTIONS(
+                R.string.empty_questions), ANSWERS(R.string.empty_answers);
 
         final int textResId;
 

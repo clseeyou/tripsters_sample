@@ -6,44 +6,52 @@ import com.tripsters.sample.R;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 public class DateUtils {
 
-    public static String formatDate2(Context ctx, Date date) {
+    public static String formatDateFromCreated(Context context, long created) {
+        return formatDate(context, new Date(created * 1000));
+    }
+
+    public static String formatDate(Context context, Date date) {
         if (date == null) {
             return "";
         }
+
         long delta = new Date().getTime() - date.getTime();
-        int value = 0;
-        String f = "%d%s";
+
         if (delta > 86400000) {
-            return formatTime2(date.getTime() / 1000);
-            // return getDateFormat().format(date);
+            return formatTime(date.getTime() / 1000);
         } else {
+            int value;
+            String format = "%d%s";
+
             if (delta > 3600000) {
                 value = (int) (delta / 3600000);
+
                 if (value > 1) {
-                    return String.format(f, value, ctx.getString(R.string.hour_label_plural));
+                    return String.format(format, value, context.getString(R.string.hour_label_plural));
                 } else {
-                    return String.format(f, value, ctx.getString(R.string.hour_label));
+                    return String.format(format, value, context.getString(R.string.hour_label));
                 }
             } else if (delta > 60000) {
                 value = (int) (delta / 60000);
+
                 if (value > 1) {
-                    return String.format(f, value, ctx.getString(R.string.minute_label_plural));
+                    return String.format(format, value, context.getString(R.string.minute_label_plural));
                 } else {
-                    return String.format(f, value, ctx.getString(R.string.minute_label));
+                    return String.format(format, value, context.getString(R.string.minute_label));
                 }
             } else {
-                return String.format(f, 1, ctx.getString(R.string.minute_label));
+                return String.format(format, 1, context.getString(R.string.minute_label));
             }
         }
     }
 
-    public static String formatTime2(long cc_time) {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        String re_StrTime = sdf.format(new Date(cc_time * 1000L));
+    public static String formatTime(long time) {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
 
-        return re_StrTime;
+        return simpleDateFormat.format(new Date(time * 1000L));
     }
 }

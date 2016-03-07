@@ -1,7 +1,5 @@
 <resources>
-
     <dimen name="titlebar_height">50dp</dimen>
-    <dimen name="pull_refresh_progress_size">32dp</dimen>
     <dimen name="updatebar_height">62dp</dimen>
 	<dimen name="updatebar_icon_space">50dp</dimen>
     <dimen name="tb_margin">15dp</dimen>
@@ -19,58 +17,18 @@
     <dimen name="text_small_size">11sp</dimen>
     <dimen name="setting_item_title_height">55dp</dimen>
     <dimen name="setting_item_content_height">45dp</dimen>
-    <dimen name="message_item_height">55dp</dimen>
-    <dimen name="add_tags_item_height">40dp</dimen>
     <dimen name="city_item_heigh">40dp</dimen>
-    <dimen name="tag_item_heigh">80dp</dimen>
     <dimen name="question_detail_answer_num_heigh">30dp</dimen>
-
-    <dimen name="margin_chat_activity">5dp</dimen>
-    <dimen name="margin_chat_activity_little">1dp</dimen>
-    <dimen name="size_avatar">50dp</dimen>
-    <dimen name="chat_item_padding">10dp</dimen>
-    <dimen name="chat_item_margin">10dp</dimen>
-    <dimen name="chat_item_margin_little">6dp</dimen>
-    <dimen name="chat_item_content_margin">10dp</dimen>
-    <dimen name="chat_item_content_margin_little">6dp</dimen>
-    <dimen name="chat_item_max_width">225dp</dimen>
-    <dimen name="chat_item_line_spacing">2dp</dimen>
 
     <dimen name="image_item_max_size">80dp</dimen>
     <dimen name="image_detail_max_size">120dp</dimen>
 
-    <dimen name="image_thumbnail_size">100dp</dimen>
-    <dimen name="image_thumbnail_spacing">1dp</dimen>
-    <dimen name="height_top_bar">46dp</dimen>
     <dimen name="index_bar_size">13dp</dimen>
-    <dimen name="sendquestion_title_height">60dp</dimen>
-    <dimen name="sendquestion_detail_height">115dp</dimen>
-    <dimen name="sendquestion_thumb_width">100dp</dimen>
 
     <dimen name="image_min_size">60dp</dimen>
     <dimen name="image_small_max_size">120dp</dimen>
     <dimen name="image_middle_max_size">180dp</dimen>
 
-    <dimen name="image_location_size">150dp</dimen>
-    <dimen name="blog_divider_height">5dp</dimen>
-    <dimen name="blog_item_space_small">10dp</dimen>
-    <dimen name="blog_item_space_large">20dp</dimen>
     <dimen name="galley_item_padding">1dp</dimen>
-    <dimen name="sendblog_title_height">40dp</dimen>
-    <dimen name="pic_send_margin">10dp</dimen>
     <dimen name="blog_comment_pic_size">70dp</dimen>
-    <dimen name="poi_pic_size">80dp</dimen>
-
-    <dimen name="menu_item_height">50dp</dimen>
-
-    <dimen name="image_poi_item_width">75dp</dimen>
-    <dimen name="image_poi_item_height">60dp</dimen>
-
-    <!-- 自定义相机 -->
-    <dimen name="camera_progress_height">3dp</dimen>
-    <dimen name="camera_progress_active_width">3dp</dimen>
-    <dimen name="camera_progress_line_width">1dp</dimen>
-    <dimen name="camera_progress_mini_time_width">2dp</dimen>
-
-    <dimen name="record_touch_slop">32dp</dimen>
 </resources>

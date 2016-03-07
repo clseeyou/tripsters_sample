@@ -16,8 +16,6 @@ import com.tripsters.sample.util.ImageUtils;
 import com.tripsters.sample.util.IntentUtils;
 import com.tripsters.sample.util.UserUtils;
 
-import java.util.Date;
-
 public class QuestionItemView extends LinearLayout {
 
     private boolean mPortraitVisible = true;
@@ -124,7 +122,7 @@ public class QuestionItemView extends LinearLayout {
         }
         mTagsTv.setText(UserUtils.getTags(mQuestion));
         mLocationView.update(mQuestion.getIpaddr(), mQuestion.getAddress());
-        mTimeTv.setText(DateUtils.formatDate2(getContext(), new Date(mQuestion.getCreated() * 1000)));
+        mTimeTv.setText(DateUtils.formatDateFromCreated(getContext(), mQuestion.getCreated()));
         mAnswerNumTv.setText(String.valueOf(mQuestion.getAnswerNum()));
 
         if (!mAnswerVisible || mQuestion.getAnswer() == null) {

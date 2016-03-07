@@ -64,7 +64,7 @@ public class PortraitTopView extends RelativeLayout {
         }
         if (mTimeVisible) {
             mTimeTv.setVisibility(View.VISIBLE);
-            mTimeTv.setText(DateUtils.formatDate2(getContext(), new Date(created * 1000)));
+            mTimeTv.setText(DateUtils.formatDateFromCreated(getContext(), created));
 
             if (!mVerifyVisible) {
                 mTimeTv.setLayoutParams(mVerifyTv.getLayoutParams());

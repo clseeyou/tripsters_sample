@@ -16,8 +16,6 @@ import com.tripsters.sample.util.Constants;
 import com.tripsters.sample.util.DateUtils;
 import com.tripsters.sample.util.ImageUtils;
 
-import java.util.Date;
-
 public class AnswerResultItemView extends LinearLayout {
 
     private Answer mAnswer;
@@ -72,6 +70,6 @@ public class AnswerResultItemView extends LinearLayout {
         mDetailTv.setText(mAnswer.getDetail());
         ImageUtils.setResizeImage(getContext(), mPicIv, mAnswer.getPicInfo(), PicType.MIDDLE);
         mTimeBottomTv
-                .setText(DateUtils.formatDate2(getContext(), new Date(mAnswer.getCreated() * 1000)));
+                .setText(DateUtils.formatDateFromCreated(getContext(), mAnswer.getCreated()));
     }
 }

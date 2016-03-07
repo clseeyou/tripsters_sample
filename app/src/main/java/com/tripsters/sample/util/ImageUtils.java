@@ -30,10 +30,10 @@ public class ImageUtils {
     /**
      * 显示图片
      *
-     * @param context
+     * @param context   上下文
      * @param imageView 图片ImageView
-     * @param picInfo 图片对象
-     * @param picType 图片对象类型
+     * @param picInfo   图片对象
+     * @param picType   图片对象类型
      */
     public static void setImage(Context context, ImageView imageView, PicInfo picInfo,
                                 PicInfo.PicType picType, Rect rect) {
@@ -43,10 +43,10 @@ public class ImageUtils {
     /**
      * 显示图片
      *
-     * @param context
+     * @param context   上下文
      * @param imageView 图片ImageView
-     * @param picInfo 图片对象
-     * @param picType 图片对象类型
+     * @param picInfo   图片对象
+     * @param picType   图片对象类型
      */
     public static void setImage(Context context, ImageView imageView, PicInfo picInfo,
                                 PicInfo.PicType picType, Rect rect, int defaultResId) {
@@ -63,7 +63,7 @@ public class ImageUtils {
     /**
      * 显示图片
      *
-     * @param context
+     * @param context   上下文
      * @param imageView 图片ImageView
      * @param mediaInfo 图片对象
      */
@@ -74,7 +74,7 @@ public class ImageUtils {
     /**
      * 显示图片
      *
-     * @param context
+     * @param context   上下文
      * @param imageView 图片ImageView
      * @param mediaInfo 图片对象
      */
@@ -103,18 +103,16 @@ public class ImageUtils {
         // String time =
         // retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION);
         // 取得视频的长度(单位为秒)
-        Bitmap bitmap = retriever.getFrameAtTime(0, MediaMetadataRetriever.OPTION_CLOSEST_SYNC);
-
-        return bitmap;
+        return retriever.getFrameAtTime(0, MediaMetadataRetriever.OPTION_CLOSEST_SYNC);
     }
 
     /**
      * 显示国家图
      *
-     * @param context context
-     * @param imageView imageview
-     * @param url 缩略图Url
-     * @param position index
+     * @param context   上下文
+     * @param imageView 图片imageview
+     * @param url       缩略图Url
+     * @param position  index
      */
     public static void setCountryPic(Context context, ImageView imageView, String url, int position) {
         DisplayMetrics dm = Utils.getWindowRect(context);
@@ -134,10 +132,10 @@ public class ImageUtils {
     /**
      * 设置帖子评论图片
      *
-     * @param context
-     * @param ivPic
-     * @param picInfo
-     * @param picType
+     * @param context 上下文
+     * @param ivPic   图片imageview
+     * @param picInfo 图片结构
+     * @param picType 要显示的图片大小类型
      */
     public static void setDataBottomPic(Context context, ImageView ivPic, PicInfo picInfo,
                                         PicInfo.PicType picType) {
@@ -153,10 +151,10 @@ public class ImageUtils {
     /**
      * 显示限制大小的图片
      *
-     * @param context
+     * @param context   上下文
      * @param imageView 图片ImageView
-     * @param picInfo 图片对象
-     * @param picType 图片对象类型
+     * @param picInfo   图片对象
+     * @param picType   图片对象类型
      */
     public static void setResizeImage(Context context, ImageView imageView, PicInfo picInfo,
                                       PicInfo.PicType picType) {
@@ -185,9 +183,9 @@ public class ImageUtils {
     /**
      * 显示头像
      *
-     * @param context
+     * @param context   上下文
      * @param imageview 头像ImageView
-     * @param url 头像Url
+     * @param url       头像Url
      */
     public static void setAvata(Context context, ImageView imageview, String url, boolean female) {
         if (TextUtils.isEmpty(url)) {
@@ -205,9 +203,9 @@ public class ImageUtils {
     /**
      * 显示头像
      *
-     * @param context
+     * @param context   上下文
      * @param imageview 头像ImageView
-     * @param url 头像Url
+     * @param url       头像Url
      */
     public static void setAvata(Context context, ImageView imageview, String url, int defaultResId) {
         if (TextUtils.isEmpty(url)) {
@@ -220,9 +218,9 @@ public class ImageUtils {
     /**
      * 显示头像
      *
-     * @param context
+     * @param context      上下文
      * @param portraitView 头像View
-     * @param url 头像Url
+     * @param url          头像Url
      */
     public static void setAvata(Context context, PortraitView portraitView, String url,
                                 Gender gender, Identity identity) {
@@ -236,9 +234,9 @@ public class ImageUtils {
     /**
      * 显示头像
      *
-     * @param context
+     * @param context      上下文
      * @param portraitView 头像View
-     * @param url 头像Url
+     * @param url          头像Url
      */
     public static void setAvata(Context context, PortraitView portraitView, String url,
                                 Identity identity, int defaultResId) {
@@ -252,9 +250,9 @@ public class ImageUtils {
     /**
      * 显示头像
      *
-     * @param context
-     * @param portraitView
-     * @param userInfo
+     * @param context      上下文
+     * @param portraitView 头像View
+     * @param userInfo     用户信息结构
      */
     public static void setAvata(Context context, PortraitView portraitView, UserInfo userInfo) {
         if (userInfo == null || TextUtils.isEmpty(userInfo.getAvatar())) {

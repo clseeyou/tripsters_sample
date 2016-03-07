@@ -48,7 +48,8 @@ public class TripstersPushMessageReceiver extends PushMessageReceiver {
     public static final String TAG = "PushMessage";
 
     // 在百度开发者中心查询应用的API Key
-    public static String API_KEY = "WEFAU1ylCuDROaM1tEwQpVR8";
+//    public static String API_KEY = "WEFAU1ylCuDROaM1tEwQpVR8"; // 测试API_KEY
+    public static String API_KEY = "24vSLtrLzoCxm3LXbwNA1vYL";
 
     /**
      * 调用PushManager.startWork后，sdk将对push
@@ -191,7 +192,7 @@ public class TripstersPushMessageReceiver extends PushMessageReceiver {
             message.setTime(System.currentTimeMillis());
 
             // Demo更新界面展示代码，应用请在这里加入自己的处理逻辑
-            updateContent(context, null, false);
+            updateContent(context, message, false);
         }
     }
 

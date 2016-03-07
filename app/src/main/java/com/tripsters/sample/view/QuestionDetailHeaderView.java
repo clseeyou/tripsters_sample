@@ -15,8 +15,6 @@ import com.tripsters.sample.util.DateUtils;
 import com.tripsters.sample.util.ImageUtils;
 import com.tripsters.sample.util.UserUtils;
 
-import java.util.Date;
-
 public class QuestionDetailHeaderView extends LinearLayout {
 
     private Question mQuestion;
@@ -83,8 +81,7 @@ public class QuestionDetailHeaderView extends LinearLayout {
         ImageUtils.setResizeImage(getContext(), mPicIv, mQuestion.getPicInfo(), PicType.SMALL);
         mTagsTv.setText(UserUtils.getTags(mQuestion));
         mLocationView.update(mQuestion.getIpaddr(), mQuestion.getAddress());
-        mTimeBottomTv.setText(DateUtils.formatDate2(getContext(), new Date(
-                mQuestion.getCreated() * 1000)));
+        mTimeBottomTv.setText(DateUtils.formatDateFromCreated(getContext(), mQuestion.getCreated()));
         mFavNumTv.setText(getResources().getString(R.string.question_item_favorite_num,
                 mQuestion.getSaveNum()));
     }

@@ -38,7 +38,8 @@ public class SendActivity extends BaseActivity {
     private class DetailTextWatcher implements TextWatcher {
 
         @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        }
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -49,7 +50,8 @@ public class SendActivity extends BaseActivity {
         }
 
         @Override
-        public void afterTextChanged(Editable s) {}
+        public void afterTextChanged(Editable s) {
+        }
     }
 
     // Sub activity request code
@@ -64,7 +66,6 @@ public class SendActivity extends BaseActivity {
     private TextView mDetailNumTv;
     private TextView mTagsTv;
     private SendLocationView mSendLocationView;
-    private TextView mConsumePointsTv;
     private LinearLayout mToolbarLt;
     private LinearLayout mPictureLt;
     private LinearLayout mPhotoLt;
@@ -137,14 +138,6 @@ public class SendActivity extends BaseActivity {
             }
         });
         mSendLocationView.setVisibility(mComposer.isLocationVisiable() ? View.VISIBLE : View.GONE);
-        mConsumePointsTv = (TextView) findViewById(R.id.tv_consume_points);
-        if (mComposer.getConsumePoints() == 0) {
-            mConsumePointsTv.setVisibility(View.GONE);
-        } else {
-            mConsumePointsTv.setVisibility(View.VISIBLE);
-            mConsumePointsTv.setText(getString(R.string.send_question_consume_points,
-                    mComposer.getConsumePoints()));
-        }
 
         mToolbarLt = (LinearLayout) findViewById(R.id.lt_toolbar);
         mToolbarLt.setVisibility(mComposer.isToolbarVisiable() ? View.VISIBLE : View.GONE);

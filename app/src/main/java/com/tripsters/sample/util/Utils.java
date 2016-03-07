@@ -68,9 +68,10 @@ public class Utils {
     /**
      * 编辑框字数提示
      *
-     * @param context
-     * @param text
-     * @param maxSize
+     * @param context 上下文
+     * @param text    输入的文案
+     * @param maxSize 字数最大限制
+     * @return 显示文案
      */
     public static SpannableString getLimitNum(Context context, CharSequence text, int maxSize) {
         text = TextUtils.isEmpty(text) ? "" : text;

@@ -9,10 +9,6 @@ public class CheckUtils {
 
     /**
      * 检查问题标题是否合法
-     *
-     * @param questionTitle
-     * @param onlyEmpty
-     * @return
      */
     public static boolean checkQuestionTitleValid(String questionTitle, boolean onlyEmpty) {
         if (TextUtils.isEmpty(questionTitle)) {
@@ -37,9 +33,6 @@ public class CheckUtils {
 
     /**
      * 检查回答内容是否合法
-     *
-     * @param answerTitle
-     * @return
      */
     public static boolean checkAnswerTitleValid(String answerTitle) {
         if (TextUtils.isEmpty(answerTitle)) {
@@ -52,9 +45,6 @@ public class CheckUtils {
 
     /**
      * 检查第三方平台用户唯一标示是否合法
-     *
-     * @param appuid
-     * @return
      */
     public static boolean checkLoginAppuidValid(String appuid) {
         if (TextUtils.isEmpty(appuid)) {
@@ -67,9 +57,6 @@ public class CheckUtils {
 
     /**
      * 检查第三方平台用户昵称是否合法
-     *
-     * @param nickname
-     * @return
      */
     public static boolean checkLoginNicknameValid(String nickname) {
         if (TextUtils.isEmpty(nickname)) {
@@ -82,9 +69,6 @@ public class CheckUtils {
 
     /**
      * 检查第三方平台用户头像是否合法
-     *
-     * @param avatar
-     * @return
      */
     public static boolean checkLoginAvatarValid(String avatar) {
         if (TextUtils.isEmpty(avatar)) {

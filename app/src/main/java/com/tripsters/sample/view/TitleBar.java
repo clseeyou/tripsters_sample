@@ -12,17 +12,17 @@ import com.tripsters.sample.R;
 
 public class TitleBar extends FrameLayout {
     public enum LeftType {
-        NONE, ICON_BACK, ICON_CAMERA, TEXT_CANCEL;
+        NONE, ICON_BACK, TEXT_CANCEL
     }
 
     public enum RightType {
-        NONE, ICON_FAVORITE, ICON_UNFAVORITE, TEXT_DONE, TEXT_SAVE, ICON_PHONE, TEXT_PUBLISH, ICON_SEARCH, ICON_SHARE, ICON_EDIT, TEXT_JUMP, ICON_GROUP_DETAIL, TEXT_ADD_TRIP, ICON_SEND_QUESTION, ICON_SEND_BLOG;
+        NONE, TEXT_DONE, TEXT_PUBLISH, TEXT_JUMP, ICON_SEND_QUESTION
     }
 
     public interface OnTitleBarClicklistener {
-        public void onLeftClick(View view);
+        void onLeftClick(View view);
 
-        public void onRightClick(View view);
+        void onRightClick(View view);
     }
 
     private LinearLayout mLeftLt;
@@ -114,13 +114,6 @@ public class TitleBar extends FrameLayout {
 
                 mLeftIv.setImageResource(R.drawable.title_back);
                 break;
-            case ICON_CAMERA:
-                mLeftLt.setVisibility(View.VISIBLE);
-                mLeftTv.setVisibility(View.GONE);
-                mLeftIv.setVisibility(View.VISIBLE);
-
-                mLeftIv.setImageResource(R.drawable.title_camera);
-                break;
             case TEXT_CANCEL:
                 mLeftLt.setVisibility(View.VISIBLE);
                 mLeftTv.setVisibility(View.VISIBLE);
@@ -137,40 +130,12 @@ public class TitleBar extends FrameLayout {
             case NONE:
                 mRightLt.setVisibility(View.GONE);
                 break;
-            case ICON_FAVORITE:
-                mRightLt.setVisibility(View.VISIBLE);
-                mRightTv.setVisibility(View.GONE);
-                mRightIv.setVisibility(View.VISIBLE);
-
-                mRightIv.setImageResource(R.drawable.title_favorite);
-                break;
-            case ICON_UNFAVORITE:
-                mRightLt.setVisibility(View.VISIBLE);
-                mRightTv.setVisibility(View.GONE);
-                mRightIv.setVisibility(View.VISIBLE);
-
-                mRightIv.setImageResource(R.drawable.title_unfavorite);
-                break;
             case TEXT_DONE:
                 mRightLt.setVisibility(View.VISIBLE);
                 mRightTv.setVisibility(View.VISIBLE);
                 mRightIv.setVisibility(View.GONE);
 
                 mRightTv.setText(R.string.done);
-                break;
-            case TEXT_SAVE:
-                mRightLt.setVisibility(View.VISIBLE);
-                mRightTv.setVisibility(View.VISIBLE);
-                mRightIv.setVisibility(View.GONE);
-
-                mRightTv.setText(R.string.save);
-                break;
-            case ICON_PHONE:
-                mRightLt.setVisibility(View.VISIBLE);
-                mRightTv.setVisibility(View.GONE);
-                mRightIv.setVisibility(View.VISIBLE);
-
-                mRightIv.setImageResource(R.drawable.title_telephone);
                 break;
             case TEXT_PUBLISH:
                 mRightLt.setVisibility(View.VISIBLE);
@@ -179,27 +144,6 @@ public class TitleBar extends FrameLayout {
 
                 mRightTv.setText(R.string.publish);
                 break;
-            case ICON_SEARCH:
-                mRightLt.setVisibility(View.VISIBLE);
-                mRightTv.setVisibility(View.GONE);
-                mRightIv.setVisibility(View.VISIBLE);
-
-                mRightIv.setImageResource(R.drawable.title_search);
-                break;
-            case ICON_SHARE:
-                mRightLt.setVisibility(View.VISIBLE);
-                mRightTv.setVisibility(View.GONE);
-                mRightIv.setVisibility(View.VISIBLE);
-
-                mRightIv.setImageResource(R.drawable.title_share);
-                break;
-            case ICON_EDIT:
-                mRightLt.setVisibility(View.VISIBLE);
-                mRightTv.setVisibility(View.GONE);
-                mRightIv.setVisibility(View.VISIBLE);
-
-                mRightIv.setImageResource(R.drawable.title_edit);
-                break;
             case TEXT_JUMP:
                 mRightLt.setVisibility(View.VISIBLE);
                 mRightTv.setVisibility(View.VISIBLE);
@@ -207,34 +151,12 @@ public class TitleBar extends FrameLayout {
 
                 mRightTv.setText(R.string.jump);
                 break;
-            case ICON_GROUP_DETAIL:
-                mRightLt.setVisibility(View.VISIBLE);
-                mRightTv.setVisibility(View.GONE);
-                mRightIv.setVisibility(View.VISIBLE);
-
-                mRightIv.setImageResource(R.drawable.title_group_detail);
-                break;
-            case TEXT_ADD_TRIP:
-                mRightLt.setVisibility(View.VISIBLE);
-                mRightTv.setVisibility(View.VISIBLE);
-                mRightIv.setVisibility(View.GONE);
-
-                mRightTv.setTextColor(getResources().getColor(R.color.tb_blue));
-                mRightTv.setText(R.string.add_trip);
-                break;
             case ICON_SEND_QUESTION:
                 mRightLt.setVisibility(View.VISIBLE);
                 mRightTv.setVisibility(View.GONE);
                 mRightIv.setVisibility(View.VISIBLE);
 
                 mRightIv.setImageResource(R.drawable.title_send_question);
-                break;
-            case ICON_SEND_BLOG:
-                mRightLt.setVisibility(View.VISIBLE);
-                mRightTv.setVisibility(View.GONE);
-                mRightIv.setVisibility(View.VISIBLE);
-
-                mRightIv.setImageResource(R.drawable.title_send_blog);
                 break;
             default:
                 mRightLt.setVisibility(View.GONE);
